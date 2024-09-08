@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/logo.png';
 </script>
 
 <header>
@@ -13,7 +12,7 @@
 			<li class="thisYear" aria-current={$page.url.pathname === '/' ? 'page' : undefined}><a href="/">'24</a></li>
 			<div class="fill"></div>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/"><img src={logo} alt=""></a>
+				<a href="/"><img src="/images/logo.png" alt=""></a>
 			</li>
 			<div class="fill"></div>
 			<li aria-current={$page.url.pathname === '/donate/' ? 'page' : undefined}><a href='/donate/'>Támogatás</a></li>

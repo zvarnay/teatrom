@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
     export let title;
     export let body;
-    export let image = null;
+    export let image = null as string | null;
     export let style = "";
     export let background = "";
     export let coverPage = false;

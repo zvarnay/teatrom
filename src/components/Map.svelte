@@ -2,8 +2,6 @@
     import { createD3Map, handleMouseMove, highlightSelectedVillage } from "$lib/helpers/d3Helpers";
     import { createEventDispatcher, onMount } from "svelte";
 
-    import mapFgImage from "$lib/images/roads-settlements-cyan.webp";
-
     export let villages = [];
 
     let svg: SVGElement;
@@ -35,7 +33,7 @@
         height="100%"
     >
         <image
-            href="{mapFgImage}"
+            href="/images/roads-settlements-cyan.webp"
             width="100%"
             style="object-fit:cover"
         />

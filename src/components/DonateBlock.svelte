@@ -1,7 +1,3 @@
-<script lang="ts">
-    import floatingImage1 from "$lib/images/teatrom-28.jpg";
-</script>
-
 <section id="donate">
     <div class="contentWrapper">
         <div class="grid">
@@ -45,8 +41,8 @@
         padding: 3rem 1rem;
         z-index: 2;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
-        background-image: url('$lib/images/textures/tx-1.webp');
-        background-image: url('$lib/images/donatebg-2.png');
+        background-image: url('/images/textures/tx-1.webp');
+        background-image: url('/images/donatebg-2.png');
         background-position: top right;
         background-size: cover;
     }

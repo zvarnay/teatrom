@@ -3,7 +3,6 @@
     import Map from "../components/Map.svelte";
     import ContentBlock from "../components/ContentBlock.svelte";
 
-    import teatromImage from "$lib/images/2.png";
     import DonateBlock from "../components/DonateBlock.svelte";
 
     export let data: { villages: any[] };
@@ -29,7 +28,7 @@
       title="TeatRom" 
       body="<p>A TeatRom Magyarország legszegényebb térségében megjelenő roma összművészeti fesztivál.</p><p></p><p> Munkánk hozzájárul a borsodi szegregátumokban élő szociálisan és egészségileg hátrányos helyzetű fiatalok és felnőttek mentális egészségi állapotának, életmódjának és esélyegyenlőségének javításához. A magas színvonalú, kortárs egyetemes és magyar roma kultúra alkotóinak támogatásával, alkotásaik roma közösségekhez való eljuttatásával szeretnénk hozzájárulni hazánk szellemi-, művészeti-, kulturális életének fejlesztéséhez.</p><p> A fesztivál lehetővé teszi, hogy a szegregátumok közössége a művészeti alkotásokon keresztül is találkozzon a kultúra legjobbjaival, és felfokozottan éljék át az egyetemes roma kultúra különleges értékeit, egyedi létjogosultságát, európa kultúráinak sorában.</p>"
       style="twoColumn"
-      image={teatromImage}/>
+      image="/images/2.png"/>
 
     <DonateBlock />
 </section>

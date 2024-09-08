@@ -39,7 +39,7 @@
 		display: flex;
 		flex-direction: column;
 		padding: 1rem 2rem;
-		background: url('$lib/images/tx-2.webp');
+		background: url('/images/tx-2.webp');
 		border-radius: 4px;
 		background: var(--color-theme-1);
 
