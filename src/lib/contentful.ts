@@ -1,15 +1,6 @@
 import contentful from 'contentful';
 
-const client = contentful.createClient({
-    space: 'xfoszu3wzi7z',
-    accessToken: '5LF_91rrSKKvjYJq9K9JJbEqjn3stDWZE4jaBo5e5QY'
+export const contentfulClient = contentful.createClient({
+    space: process.env.CONTENTFUL_SPACE_ID as string,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
 });
-
-/* client.getEntries({
-    content_type: 'village',
-    include: 2,
-}).then((response) => {
-    console.log(response.items);
-}); */
-
-export default client;

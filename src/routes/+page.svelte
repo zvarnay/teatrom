@@ -1,18 +1,47 @@
-<script lang="ts">    
-    import { onMount } from 'svelte';
+<script lang="ts">
+    import { onMount } from "svelte";
 
-    let villages = [];
+    // Define the shape of the expected data
+    type Event = {
+        fields: {
+            title: string;
+            description: string;
+        };
+    };
 
+    type ScheduleEntry = {
+        fields: {
+            time: string;
+            event: Event;
+        };
+    };
+
+    type Village = {
+        schedule: ScheduleEntry[];
+    };
+
+    export let villages: Village[] = [];
+
+    // Fetch data on mount
     onMount(() => {
         fetchData();
     });
 
     async function fetchData() {
-        const response = await fetch('/api/villages');
-        const data = await response.json();
-        villages = data;
+        try {
+            const response = await fetch("/api/villages");
+            if (!response.ok) {
+                throw new Error("Failed to fetch data");
+            }
+
+            const data = await response.json();
+
+            // Make sure to reassign a new array to trigger reactivity
+            villages = [...data];
+        } catch (error) {
+            console.error("Error fetching villages:", error);
+        }
     }
-    
 </script>
 
 <ul class="events">
@@ -21,10 +50,10 @@
             <li>
                 <div class="date">{scheduleEntry.fields.time}</div>
                 <div class="event-details">
-                <h4>{scheduleEntry.fields.event.fields.title}</h4>
-                <p>{scheduleEntry.fields.event.fields.description}</p>
+                    <h4>{scheduleEntry.fields.event.fields.title}</h4>
+                    <p>{scheduleEntry.fields.event.fields.description}</p>
                 </div>
             </li>
         {/each}
     {/if}
-  </ul>
+</ul>
