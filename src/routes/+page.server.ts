@@ -11,6 +11,6 @@ export const load: PageServerLoad = async () => {
     villagesStore.set(entries.items);
 
     return {
-        posts: entries.items.map((entry) => entry.fields),
+        villages: entries.items.map((entry) => entry.fields),
     };
 };
