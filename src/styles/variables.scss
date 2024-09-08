@@ -1,0 +1,41 @@
+:root {
+    --font-body: 'montserrat', sans-serif;
+    --color-theme-1: #d5fff6;
+    --color-theme-2: #010a88;
+    --color-text: #333;
+    font-family: var(--font-body);
+	color: var(--color-text);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    word-break: auto-phrase;
+}
+
+h1, h2, p {
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1rem;
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	color: var(--color-theme-1);
+	text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}
+

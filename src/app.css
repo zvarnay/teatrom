@@ -1,0 +1,9 @@
+body {
+	min-height: 100vh;
+	margin: 0;
+	background-attachment: fixed;
+	background-color: #fff;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-image: url('$lib/images/textures/1.jpg');
+}
