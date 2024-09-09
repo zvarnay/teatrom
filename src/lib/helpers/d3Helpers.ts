@@ -34,7 +34,7 @@ export function createD3Map(svg, villages) {
             .append('text')
             .attr('x', (d) => d.x)
             .attr('y', (d) => d.y)
-            .attr('font-size', 10)
+            .attr('font-size', 14)
             .attr('font-weight', 600)
             .attr('fill', '#f0f')
             .attr('text-anchor', 'start')
@@ -43,7 +43,7 @@ export function createD3Map(svg, villages) {
             .attr('stroke-width', 2)
             .attr('paint-order', 'stroke')
             .attr('dx', village.mapRadius * 1.6)
-            .text((new Date(village.date)).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit'}));
+            .text((new Date(village.date)).toLocaleDateString('hu-HU', { month: 'short', day: '2-digit'}).toUpperCase());
     });
 }
 

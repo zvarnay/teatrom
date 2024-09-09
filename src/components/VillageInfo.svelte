@@ -3,7 +3,7 @@
 </script>
 
 {#if village}
-    <div class="villageInfo">
+    <a class="wrapper" href="/schedule"><div class="villageInfo">
         <div class="horizontalSplit">
             <img src={village.silhouetteImage.fields.file.url} alt={village.name} />
             <div>
@@ -30,10 +30,19 @@
                 </li>
             {/each}
         </ul>
-    </div>
+    </div></a>
 {/if}
 
 <style lang="scss">
+    a.wrapper {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover .villageInfo {
+            outline: 2px solid var(--color-theme-2);
+        }
+    }
+
     .villageInfo {
         max-width: 500px;
 		display: flex;

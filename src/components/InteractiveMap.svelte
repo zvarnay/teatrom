@@ -18,12 +18,12 @@
 </header>
 {/if}
 <div class="mapPanel">
-    <aside>
-        <VillageInfo village={selectedVillage} />
-    </aside>
     <section class="mapContainer">
         <Map villages={villages} on:villageHover={handleVillageHover} />
     </section>
+    <aside>
+        <VillageInfo village={selectedVillage} />
+    </aside>
 </div>
 
 <style lang="scss">
@@ -52,11 +52,11 @@
         height: calc(100vh - 5rem - 2rem);
         margin-top: 1rem;
         margin-bottom: 2rem;
-        margin-left: 1rem;
-        margin-right: auto;
+        margin-right: 1rem;
+        margin-left: auto;
 
         display: grid;
-        grid-template-columns: 350px minmax(200px, 800px);
+        grid-template-columns: minmax(200px, 800px) 350px;
         gap: 5rem;
 
         aside {

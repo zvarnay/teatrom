@@ -31,7 +31,7 @@
 		left: 0;
 		width: 100%;
 		display: flex;
-		z-index: 3;
+		z-index: 4;
 	}
 
 	nav {
