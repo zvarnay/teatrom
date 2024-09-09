@@ -3,6 +3,7 @@
     import Map from "../components/Map.svelte";
 
     export let villages: any[] = [];
+    export let showHeader = false;
 
     let selectedVillage = villages[0];
 
@@ -11,9 +12,11 @@
     }
 </script>
 
+{#if showHeader}
 <header>
     <h1>Interaktív térkép:</h1>
 </header>
+{/if}
 <div class="mapPanel">
     <aside>
         <VillageInfo village={selectedVillage} />

@@ -19,5 +19,5 @@
         background="url(/images/ashes-1.webp)"
         whiteText={true}
     />
-    <InteractiveMap villages={data.villages} />
+    <InteractiveMap villages={data.villages} showHeader={true} />
 </section>
