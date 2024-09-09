@@ -1,4 +1,8 @@
-<section id="donate">
+<script lang="ts">
+    export let coverPage = false;
+</script>
+
+<section id="donate" class:coverPage={coverPage}>
     <div class="contentWrapper">
         <div class="grid">
             <div class="textContainer">
@@ -11,22 +15,30 @@
                 </p>
             </div>
             <div class="donationOptions">
-                <article class="gold">
-                    <h3>50.000</h3>
-                    <button>Támogatom</button>
-                </article>
-                <article class="silver">
-                    <h3>20.000</h3>
-                    <button>Támogatom</button>
-                </article>
-                <article>
-                    <h3>10.000</h3>
-                    <button>Támogatom</button>
-                </article>
-                <article class="customAmount">
-                    <h3>Saját összeg</h3>
-                    <button>Támogatom</button>
-                </article>
+                <a target="_blank" href="https://donate.stripe.com/3cs7wd1w44Dfbew289">
+                    <article class="gold">
+                        <h3>50.000</h3>
+                        <button>Támogatom</button>
+                    </article>
+                </a>
+                <a target="_blank" href="https://donate.stripe.com/fZe03L5Mk1r33M44gi">
+                    <article class="silver">
+                        <h3>20.000</h3>
+                        <button>Támogatom</button>
+                    </article>
+                </a>
+                <a target="_blank" href="https://donate.stripe.com/bIY2bT0s01r3aas28b">
+                    <article>
+                        <h3>10.000</h3>
+                        <button>Támogatom</button>
+                    </article>
+                </a>
+                <a target="_blank" href="https://donate.stripe.com/28o4k1b6E1r36Yg5kk">
+                    <article class="customAmount">
+                        <h3>Egyéni összeg</h3>
+                        <button>Támogatom</button>
+                    </article>
+                </a>
             </div>
         </div>
     </div>
@@ -45,6 +57,12 @@
         background-image: url('/images/donatebg-2.png');
         background-position: top right;
         background-size: cover;
+
+        &.coverPage {
+            min-height: calc(100vh + 15rem);
+            padding-top: 15rem;
+            margin-top: -18rem;
+        }
     }
 
     .contentWrapper {
@@ -82,6 +100,10 @@
         flex-direction: column;
         gap: 1rem;
 
+        a {
+            text-decoration: none;
+        }
+
         article {
             display: flex;
             justify-content: space-between;
@@ -108,11 +130,10 @@
                 border-radius: 0.5rem;
                 background: var(--color-theme-2);
                 color: #fff;
-                font-size: 1rem;
+                font-size: 1.1rem;
                 font-weight: 900;
                 cursor: pointer;
                 transition: opacity 0.3s;
-                
             }
             
             &:hover button {

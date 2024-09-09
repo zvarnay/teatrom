@@ -4,10 +4,15 @@
     export let image = null as string | null;
     export let style = "";
     export let background = "";
-    export let coverPage = false;
+    export let whiteText = false;
+    export let mini = false;
 </script>
 
-<section style="background: {background}" class:coverPage={coverPage}>
+<section
+    style="background: {background}; background-size: cover; background-position: center;"
+    class:mini={mini}
+    class:whiteText={whiteText}
+>
     <div class="contentWrapper">
         <div class="grid">
             {#if image}
@@ -21,19 +26,27 @@
     </div>
 </section>
 
-<style lang="scss" background="{background}">
+<style lang="scss">
     section {
-        min-height: 60vh;
+        min-height: 90vh;
         display: flex;
         align-items: center;
         margin: 0 -1rem;
         padding: 3rem 1rem;
-        z-index: 2;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
-
-        &.coverPage {
-            min-height: 100vh;
+        background-size: cover;
+        
+        position: relative;
+        z-index: 2;
+        
+        &.mini {
+            padding: 6rem 1rem;
+            min-height: 0;
         }
+    }
+
+    :global(section.whiteText :is(h2, p)) {
+        color: #fff;
     }
 
     .contentWrapper {
@@ -61,7 +74,7 @@
     }
 
     section :global(p) {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         font-size: 1.25rem;
         line-height: 1.5;
     }

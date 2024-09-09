@@ -12,7 +12,7 @@ export function createD3Map(svg, villages) {
             .append('circle')
             .attr('cx', (d) => d.x)
             .attr('cy', (d) => d.y)
-            .attr('r', village.mapRadius * 1.3 || 10)
+            .attr('r', village.mapRadius * 1.2 || 10)
             .attr('fill', '#f0f')
             .style('mix-blend-mode', 'saturation');
 
@@ -23,7 +23,7 @@ export function createD3Map(svg, villages) {
             .attr('class', 'radius')
             .attr('cx', (d) => d.x)
             .attr('cy', (d) => d.y)
-            .attr('r', village.mapRadius * 1.3 || 10)
+            .attr('r', village.mapRadius * 1.2 || 10)
             .attr('stroke', '#0ff')
             .attr('stroke-width', 0)
             .attr('fill', 'none');
@@ -34,7 +34,7 @@ export function createD3Map(svg, villages) {
             .append('text')
             .attr('x', (d) => d.x)
             .attr('y', (d) => d.y)
-            .attr('font-size', 13)
+            .attr('font-size', 10)
             .attr('font-weight', 600)
             .attr('fill', '#f0f')
             .attr('text-anchor', 'start')
@@ -42,8 +42,8 @@ export function createD3Map(svg, villages) {
             .attr('stroke', '#ffa')
             .attr('stroke-width', 2)
             .attr('paint-order', 'stroke')
-            .attr('dx', village.mapRadius * 1.8)
-            .text((new Date(village.date)).toLocaleDateString('hu-HU', { month: 'numeric', day: 'numeric' }));
+            .attr('dx', village.mapRadius * 1.6)
+            .text((new Date(village.date)).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit'}));
     });
 }
 

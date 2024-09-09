@@ -39,7 +39,6 @@
 		display: flex;
 		flex-direction: column;
 		padding: 1rem 2rem;
-		background: url('/images/tx-2.webp');
 		border-radius: 4px;
 		background: var(--color-theme-1);
 
@@ -48,33 +47,25 @@
             gap: 1rem;
 
             img {
-                width: 5rem;
-                height: 4rem;
+                width: 3rem;
+                height: 3rem;
                 object-fit: contain;
             }
 
             h2 {
-                font-size: 2rem;
-		        font-weight: 900;
+                font-size: 1.5rem;
+		        font-weight: 600;
             }
         }
 
         h3 {
-            margin-top: 2rem;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 1rem;
             padding-bottom: 5px;
             border-bottom: 1px solid #000;
         }
 	}
-
-	@keyframes scaleUp {
-		from {
-			transform: scale(0.8);
-		}
-		to {
-			transform: scale(1);
-		}
-	}
-
 	.events {
 		list-style: none;
 		margin: 16px 0;
@@ -100,4 +91,10 @@
 		width: 100%;
 		height: auto;
 	}
+
+    @media (min-width: 1200px) {
+        .villageInfo {
+
+        }
+    }
 </style>

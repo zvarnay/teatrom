@@ -5,21 +5,21 @@
 <header>
 	<nav>
 		<ul>
-			<li class="pastYear" aria-current={$page.url.pathname === '/2020' ? 'page' : undefined}><a href="/2020/">'20</a></li>
-			<li class="pastYear" aria-current={$page.url.pathname === '/2021' ? 'page' : undefined}><a href="/2021/">'21</a></li>
-			<li class="pastYear" aria-current={$page.url.pathname === '/2022' ? 'page' : undefined}><a href="/2022/">'22</a></li>
-			<li class="pastYear" aria-current={$page.url.pathname === '/2023' ? 'page' : undefined}><a href="/2023/">'23</a></li>
+			<li class="pastYear"><a href="/archive/2020/">'20</a></li>
+			<li class="pastYear"><a href="/archive/2021/">'21</a></li>
+			<li class="pastYear"><a href="/archive/2022/">'22</a></li>
+			<li class="pastYear"><a href="/archive/2023/">'23</a></li>
 			<li class="thisYear" aria-current={$page.url.pathname === '/' ? 'page' : undefined}><a href="/">'24</a></li>
 			<div class="fill"></div>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/"><img src="/images/logo.png" alt=""></a>
 			</li>
 			<div class="fill"></div>
-			<li aria-current={$page.url.pathname === '/donate/' ? 'page' : undefined}><a href='/donate/'>Támogatás</a></li>
-			<li aria-current={$page.url.pathname === '/schedule/' ? 'page' : undefined}><a href='/schedule/'>Programok</a></li>
-			<li aria-current={$page.url.pathname === '/tickets/' ? 'page' : undefined}><a href='/tickets/'>Jegyek</a></li>
-			<li aria-current={$page.url.pathname === '/about/' ? 'page' : undefined}><a href='/about/'>Rólunk</a></li>
-			<li aria-current={$page.url.pathname === '/archive/' ? 'page' : undefined}><a href='/archive/'>Archívum</a></li>
+			<li><a href='/donate/'>Támogatás</a></li>
+			<li><a href='/schedule/'>Programok</a></li>
+			<li><a href='/tickets/'>Jegyek</a></li>
+			<li><a href='/about/'>Rólunk</a></li>
+			<li><a href='/archive/'>Archívum</a></li>
 		</ul>
 	</nav>
 </header>
@@ -97,6 +97,6 @@
 	}
 
 	a:hover {
-		color: #ebc826;
+		color: #0091ff;
 	}
 </style>

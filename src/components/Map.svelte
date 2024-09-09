@@ -33,7 +33,7 @@
         height="100%"
     >
         <image
-            href="/images/roads-settlements-cyan.webp"
+            href="/images/roads-settlements-cyan-2.webp"
             width="100%"
             style="object-fit:cover"
         />
@@ -42,9 +42,10 @@
 
 <style lang="scss">
     .mapContainer {
-		max-height: calc(100vh - 5rem - 2rem);
-		aspect-ratio: 1 / 1;
-        transform: scale(1.2);
+		height: calc(100vh - 4rem - 2rem);
+		aspect-ratio: 4 / 3;
+        transform: scale(1.1);
+        margin-left: -8rem;
 
         svg image {
             z-index: -1;

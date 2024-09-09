@@ -1,11 +1,12 @@
 <script lang="ts">
     import ContentBlock from "../../components/ContentBlock.svelte";
+    import HeaderBlock from "../../components/HeaderBlock.svelte";
 </script>
 
 <section>
+    <HeaderBlock title="Rólunk" />
     <ContentBlock
-        title="Rólunk"
-        body="<p>Hamar megöregszel!</p>"
-        coverPage={true}
+        title="Hamar megöregszel!"
+        body="<p></p>"
     />
 </section>
