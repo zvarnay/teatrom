@@ -13,14 +13,14 @@
     class:mini={mini}
     class:whiteText={whiteText}
 >
-    <div class="contentWrapper">
+    <div class="contentWrapper {style}">
         <div class="grid">
             {#if image}
                 <img src={image} alt="" />
             {/if}
             <div>
                 <h2>{title}</h2>
-                <div class="textContainer {style}">{@html body}</div>
+                <div class="textContainer">{@html body}</div>
             </div>
         </div>
     </div>
@@ -55,6 +55,10 @@
         margin: 0 auto;
         max-width: 52rem;
         width: 100%;
+
+        &.twoColumn {
+            max-width: 72rem;
+        }
     }
 
     .grid {
@@ -62,7 +66,7 @@
     }
 
     .grid :global(img) {
-        width: 50%;
+        width: 33%;
         max-width: 24rem;
         margin-right: 2rem;
         height: fit-content;
@@ -83,12 +87,5 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 0 2rem;
-
-        &.twoColumn {
-            grid-template-columns: 1fr 1fr;
-        }
-        &.threeColumn {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
     }
 </style>

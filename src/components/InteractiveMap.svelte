@@ -30,7 +30,7 @@
     header {
         width: calc(100% + 2rem);
         height: 5rem;
-        padding-top: 1rem;
+        padding: 0.5rem 0;
         margin: 0 -1rem;
 
         display: flex;
@@ -44,7 +44,7 @@
         z-index: 2;
 
         h1 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 500;
         }
     }

@@ -25,6 +25,13 @@ body {
 	background-image: url('/images/textures/1-nopotty.webp');
 }
 
+@font-face {
+	font-family: 'univers-black-extended';
+	src: url('/fonts/UniversLTStd-BlackEx.otf') format('opentype');
+	font-weight: 900;
+	font-style: normal;
+}
+
 h1, h2, p {
 	font-weight: 400;
 }

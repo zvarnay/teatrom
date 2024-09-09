@@ -32,7 +32,7 @@
     }
 
     h1 {
-        font-family: 'UniversLtStd-BlackEx';
+        font-family: 'univers-black-extended';
         color: #fff;
         color: var(--color-theme-1);
         font-size: 6rem;

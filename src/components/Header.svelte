@@ -5,21 +5,21 @@
 <header>
 	<nav>
 		<ul>
-			<li class="pastYear"><a href="/archive/2020/">'20</a></li>
-			<li class="pastYear"><a href="/archive/2021/">'21</a></li>
-			<li class="pastYear"><a href="/archive/2022/">'22</a></li>
-			<li class="pastYear"><a href="/archive/2023/">'23</a></li>
-			<li class="thisYear" aria-current={$page.url.pathname === '/' ? 'page' : undefined}><a href="/">'24</a></li>
+			<a href="/archive/2020/"><li class="pastYear">'20</li></a>
+			<a href="/archive/2021/"><li class="pastYear">'21</li></a>
+			<a href="/archive/2022/"><li class="pastYear">'22</li></a>
+			<a href="/archive/2023/"><li class="pastYear">'23</li></a>
+			<a href="/"><li class="thisYear">'24</li></a>
+			
 			<div class="fill"></div>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/"><img src="/images/logo.png" alt=""></a>
-			</li>
+			<li><a href="/"><img src="/images/logo.png" alt=""></a></li>
 			<div class="fill"></div>
-			<li><a href='/donate/'>Támogatás</a></li>
-			<li><a href='/schedule/'>Programok</a></li>
-			<li><a href='/tickets/'>Jegyek</a></li>
-			<li><a href='/about/'>Rólunk</a></li>
-			<li><a href='/archive/'>Archívum</a></li>
+			
+			<a href='/donate/'><li>Támogatás</li></a>
+			<a href='/schedule/'><li>Programok</li></a>
+			<a href='/tickets/'><li>Jegyek</li></a>
+			<a href='/about/'><li>Rólunk</li></a>
+			<a href='/archive/'><li>Archívum</li></a>
 		</ul>
 	</nav>
 </header>
@@ -56,18 +56,37 @@
 		list-style: none;
 		background: var(--background);
 		background-size: contain;
+
+		a {
+			height: 100%;
+			text-decoration: none;
+		}
+
+		li {
+			position: relative;
+			height: 100%;
+
+			display: flex;
+			height: 100%;
+			align-items: center;
+			color: #010a88;
+			font-weight: 500;
+			text-transform: uppercase;
+			font-size: 1.15rem;
+
+			cursor: pointer;
+		}
 	}
-	ul li.thisYear a {
+	ul li.thisYear {
 		font-size: 24px;
 		font-weight: 900;
-		/* color: #ebc826; */
 	}
-	ul li.pastYear a {
+	ul li.pastYear {
 		font-size: 24px;
 		font-weight: 300;
 		color: #333;
 	}
-	ul li:not(.thisYear, .pastYear, :last-child) {
+	ul a:not(:last-child) li:not(.thisYear, .pastYear) {
 		margin-right: 1rem;
 	}
 
@@ -75,22 +94,7 @@
 		flex-grow: 1;
 	}
 
-	li {
-		position: relative;
-		height: 100%;
-	}
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		color: #010a88;
-		font-weight: 500;
-		text-transform: uppercase;
-		font-size: 1.15rem;
-		text-decoration: none;
-	}
-
-	nav a img {
+	nav li img {
 		height: 100%;
 		filter: brightness(0);
 		margin-left: 0.5rem;
