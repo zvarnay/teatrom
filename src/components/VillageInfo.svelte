@@ -5,7 +5,7 @@
 {#if village}
     <a class="wrapper" href="/schedule"><div class="villageInfo">
         <div class="horizontalSplit">
-            <img src={village.silhouetteImage.fields.file.url} alt={village.name} />
+            <img src={village.silhouetteImage.url} alt={village.name} />
             <div>
                 <h2>{village.name}</h2>
                 <p class="date">{(new Date(village.date)).toLocaleDateString('hu-HU')}</p>
@@ -15,17 +15,17 @@
 
         <h3>Program</h3>
         <ul class="events">
-            {#each Object.entries(village.schedule.map(scheduleItem => scheduleItem.fields)) as [index, { event, time }]}
+            {#each Object.entries(village.schedule.items) as [index, { time, event }]}
                 <li>
                     <div class="date">{time}</div>
                     <div>
-                        {#if event.fields.eventType === 'theatre'}
+                        {#if event.eventType === 'theatre'}
                             <img
-                                src={event.fields.image.fields.file.url}
-                                alt={event.fields.title}
+                                src={event.image.url}
+                                alt={event.title}
                             />
                         {/if}
-                        {event.fields.title}
+                        {event.title}
                     </div>
                 </li>
             {/each}
@@ -62,7 +62,6 @@
             }
 
             h2 {
-                font-size: 1.5rem;
 		        font-weight: 600;
             }
         }
@@ -92,7 +91,7 @@
 
 	.events li div.date {
 		min-width: 3.3rem;
-		font-size: 1.2rem;
+		font-size: var(--font-size-body);
 		font-weight: 300;
 	}
 

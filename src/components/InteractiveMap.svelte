@@ -44,7 +44,7 @@
         z-index: 2;
 
         h1 {
-            font-size: 2rem;
+            font-size: var(--font-size-header);
             font-weight: 500;
         }
     }

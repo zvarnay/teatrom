@@ -15,19 +15,18 @@
             </aside>
             <article>
                 <div class="villageInfo">
-                    <h2>{selectedVillage.name}</h2>
-                    <p>{selectedVillage.date}</p>
+                    <h2>{selectedVillage.name} – {(new Date(selectedVillage.date)).toLocaleDateString('hu-HU', {year: 'numeric', month: 'short', day: 'numeric'})}</h2>
                 </div>
                 <div class="eventGrid">
-                    {#each selectedVillage.schedule as schedule}
+                    {#each selectedVillage.schedule.items as schedule}
                     <article>
-                        <div class="time">{schedule.fields.time}</div>
-                        <h3>{schedule.fields.event.fields.title}</h3>
-                        {#if schedule.fields.event.fields.image}
-                            <img src={schedule.fields.event.fields.image.fields.file.url} alt="">
+                        <div class="time">{schedule.time}</div>
+                        <h3>{schedule.event.title}</h3>
+                        {#if schedule.event.image}
+                            <img src={schedule.event.image.url} alt="">
                         {/if}
-                        {#if schedule.fields.event.fields.description}
-                            <p>{schedule.fields.event.fields.description}</p>
+                        {#if schedule.event.description}
+                            <p>{schedule.event.description}</p>
                         {/if}
                     </article>
                     {/each}
@@ -43,7 +42,7 @@
         display: flex;
         align-items: center;
         margin: 0 -1rem;
-        padding: 3rem 1rem;
+        padding: 3rem 2rem;
         background-image: url(/images/textures/tx-1.webp);
         background-size: cover;
         
@@ -61,31 +60,29 @@
 
     .grid {
         display: grid;
-        grid-template-columns: calc(70px + 1rem) 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
 
         
         aside {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            justify-content: center;
+            gap: 0.5rem;
 
             height: fit-content;
-            background-color: var(--color-theme-1);
             padding: 0.5rem;
             border-radius: 10rem;
+            border: 2px solid #f0f;
 
             .imageContainer {
-                width: 70px;
-                height: 70px;
+                width: 45px;
+                aspect-ratio: 1 / 1;
                 border-radius: 50%;
                 overflow: hidden;
                 padding: 6px;
-                background-color: var(--color-theme-1);
 
                 &.active {
                     background-color: #f0f;
-                    border: 2px solid #f0f;
 
                     img {
                         filter: brightness(10);
@@ -107,10 +104,11 @@
         article {
             .villageInfo {
                 h2 {
-                    font-size: 2rem;
+                    font-size: var(--font-size-header);
                     font-weight: 600;
                     color: var(--color-theme-2);
-                    margin-top: 0.5rem;
+                    margin-bottom: 0.5rem;
+                    margin-top: 1rem;
                 }
 
                 p {
@@ -122,17 +120,17 @@
             .eventGrid {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                border-bottom: 2px solid var(--color-theme-2);
-                border-right: 2px solid var(--color-theme-2);
-
+                border-top: 2px solid var(--color-theme-2);
+                border-left: 2px solid var(--color-theme-2);
+                
                 article {
                     padding: 6px 12px;
-                    border-top: 2px solid var(--color-theme-2);
-                    border-left: 2px solid var(--color-theme-2);
-                    min-height: 60vh;
+                    border-bottom: 2px solid var(--color-theme-2);
+                    border-right: 2px solid var(--color-theme-2);
+                    padding-bottom: 4rem;
 
                     h3 {
-                        font-size: 1.25rem;
+                        font-size: var(--font-size-body);
                         font-weight: 400;
                         color: var(--color-theme-2);
                         margin-top: 0.5rem;
@@ -151,6 +149,32 @@
 
                         white-space: pre-wrap;
                     }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 420px) {
+        .grid aside .imageContainer {
+            width: 60px;
+        }
+    }
+    
+    @media (min-width: 680px) {
+        .grid {
+            grid-template-columns: calc(74px + 1rem) 1fr;
+            gap: 2rem;
+
+            .villageInfo h2 {
+                margin-top: 0;
+            }
+
+            aside {
+                flex-direction: column;
+                gap: 2rem;
+
+                .imageContainer {
+                    width: 70px;
                 }
             }
         }

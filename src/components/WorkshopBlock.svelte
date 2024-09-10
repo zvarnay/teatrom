@@ -26,7 +26,7 @@
         display: flex;
         align-items: center;
         margin: 0 -1rem;
-        padding: 3rem 1rem;
+        padding: 3rem 2rem;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
         background-size: cover;
         
@@ -65,7 +65,6 @@
             position: relative;
 
             h2 {
-                font-size: 1.5rem;
                 font-weight: 600;
             }
 
@@ -78,7 +77,7 @@
 
             p {
                 margin-bottom: 1rem;
-                font-size: 1.25rem;
+                font-size: var(--font-size-body);
                 line-height: 1.5;
 
                 &:last-child {

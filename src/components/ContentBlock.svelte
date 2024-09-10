@@ -28,11 +28,10 @@
 
 <style lang="scss">
     section {
-        min-height: 90vh;
         display: flex;
         align-items: center;
         margin: 0 -1rem;
-        padding: 3rem 1rem;
+        padding: 3rem 2rem;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
         background-size: cover;
         
@@ -40,7 +39,7 @@
         z-index: 2;
         
         &.mini {
-            padding: 6rem 1rem;
+            padding: 3rem 2rem;
             min-height: 0;
         }
     }
@@ -73,13 +72,13 @@
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: var(--font-size-header);
         font-weight: 600;
     }
 
     section :global(p) {
         margin-top: 1.5rem;
-        font-size: 1.25rem;
+        font-size: var(--font-size-body);
         line-height: 1.5;
     }
 
@@ -87,5 +86,15 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 0 2rem;
+    }
+
+    @media (min-width: 680px) {
+        section {
+            min-height: 90vh;
+
+            &.mini {
+                padding: 6rem 2rem;
+            }
+        }
     }
 </style>

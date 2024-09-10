@@ -1,8 +1,4 @@
-<script lang="ts">
-    export let coverPage = false;
-</script>
-
-<section id="donate" class:coverPage={coverPage}>
+<section id="donate">
     <div class="contentWrapper">
         <div class="grid">
             <div class="textContainer">
@@ -46,23 +42,16 @@
 
 <style lang="scss">
     section {
-        min-height: 90vh;
         display: flex;
         align-items: center;
         margin: 0 -1rem;
-        padding: 3rem 1rem;
+        padding: 3rem 2rem;
         z-index: 2;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
         background-image: url('/images/textures/tx-1.webp');
         background-image: url('/images/donatebg-2.png');
         background-position: top right;
         background-size: cover;
-
-        &.coverPage {
-            min-height: calc(100vh + 15rem);
-            padding-top: 15rem;
-            margin-top: -18rem;
-        }
     }
 
     .contentWrapper {
@@ -75,7 +64,7 @@
 
     .grid {
         display: grid;
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
 
@@ -85,29 +74,31 @@
         gap: 1rem;
 
         h2 {
-            font-size: 2rem;
+            font-size: var(--font-size-header);
             font-weight: 600;
         }
 
         p {
-            font-size: 1.25rem;
+            font-size: var(--font-size-body);
             line-height: 1.5;
         }
     }
 
     .donationOptions {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1rem;
 
         a {
             text-decoration: none;
         }
 
-        article {
+        article {;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 330px;
+
             padding: 1rem;
             border-radius: 0.5rem;
             background: var(--color-theme-1);
@@ -119,18 +110,17 @@
             }
 
             h3 {
-                font-size: 1.5rem;
+                font-size: var(--font-size-small-header);
                 font-weight: 900;
             }
 
             button {
                 opacity: 1;
-                padding: 0.5rem 1rem;
+                padding: 0.5rem;
                 border: none;
                 border-radius: 0.5rem;
                 background: var(--color-theme-2);
                 color: #fff;
-                font-size: 1.1rem;
                 font-weight: 900;
                 cursor: pointer;
                 transition: opacity 0.3s;
@@ -139,6 +129,16 @@
             &:hover button {
                 background-color: #f0f;
             }
+        }
+    }
+
+    @media (min-width: 680px) {
+        section {
+            min-height: 90vh;
+        }
+
+        .grid {
+            grid-template-columns: 1fr 300px;
         }
     }
 

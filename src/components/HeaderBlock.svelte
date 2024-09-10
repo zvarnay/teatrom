@@ -12,7 +12,7 @@
 
 <style lang="scss" background="{background}">
     section {
-        min-height: 60vh;
+        min-height: 20vh;
         display: flex;
         align-items: center;
         margin: 0 -1rem;
@@ -20,6 +20,7 @@
         z-index: 2;
         background-image: url('/images/teatrom-27.jpg');
         background-position: 50% 30%;
+        background-size: 150vw;
     }
 
     .contentWrapper {
@@ -35,13 +36,13 @@
         font-family: 'univers-black-extended';
         color: #fff;
         color: var(--color-theme-1);
-        font-size: 6rem;
+        font-size: var(--font-size-page-header);
         text-align: center;
     }
 
     section :global(p) {
         margin-top: 1rem;
-        font-size: 1.25rem;
+        font-size: var(--font-size-body);
         line-height: 1.5;
     }
 
@@ -55,6 +56,13 @@
         }
         &.threeColumn {
             grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 680px) {
+        section {
+            min-height: 40vh;
+            background-size: 100vw;
         }
     }
 </style>

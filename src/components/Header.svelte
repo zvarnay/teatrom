@@ -1,20 +1,42 @@
 <script>
 	import { page } from '$app/stores';
+	let menuOpen = false;
+
+	const toggleMenu = () => {
+		menuOpen = !menuOpen;
+	};
+
+	// Close the menu when the page changes
+	page.subscribe(() => {
+		menuOpen = false;
+	});
 </script>
 
 <header>
 	<nav>
-		<ul>
-			<a href="/archive/2020/"><li class="pastYear">'20</li></a>
-			<a href="/archive/2021/"><li class="pastYear">'21</li></a>
-			<a href="/archive/2022/"><li class="pastYear">'22</li></a>
-			<a href="/archive/2023/"><li class="pastYear">'23</li></a>
-			<a href="/"><li class="thisYear">'24</li></a>
-			
-			<div class="fill"></div>
-			<li><a href="/"><img src="/images/logo.png" alt=""></a></li>
-			<div class="fill"></div>
-			
+		<div class="menu-icon" on:click={toggleMenu}>
+			<span class="burger"></span>
+			<span class="burger"></span>
+			<span class="burger"></span>
+		</div>
+		
+		<div class="logo">
+			<a href="/"><img src="/images/logo-black.png" alt="Logo"></a>
+		</div>
+		
+		<div class="menu-spacer"></div>
+
+		<ul class:menu-open={menuOpen}>
+			<a class="year" href="/archive/2020/"><li class="pastYear">'20</li></a>
+			<a class="year" href="/archive/2021/"><li class="pastYear">'21</li></a>
+			<a class="year" href="/archive/2022/"><li class="pastYear">'22</li></a>
+			<a class="year" href="/archive/2023/"><li class="pastYear">'23</li></a>
+			<a class="year" href="/"><li class="thisYear">'24</li></a>
+
+			<li class="logo"><a href="/">
+				<img src="/images/logo-black.png" alt="Logo">
+			</a></li>
+
 			<a href='/donate/'><li>Támogatás</li></a>
 			<a href='/schedule/'><li>Programok</li></a>
 			<a href='/tickets/'><li>Jegyek</li></a>
@@ -30,77 +52,180 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		display: flex;
 		z-index: 4;
+		background-color: var(--color-theme-1);
 	}
 
 	nav {
-		width: 100%;
 		display: flex;
-		justify-content: center;
-		background-color: #53006d;
-		background-color: var(--color-theme-1);
+		justify-content: space-between;
+		align-items: center;
 		padding: 0.5rem 2rem;
+		height: 4rem;
+
+		.menu-spacer {
+			width: 25px;
+		}
+
+		.menu-icon {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+
+			span {
+				display: block;
+			}
+		}
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		
+		a {
+			height: 100%;
+		}
+
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.burger {
+		width: 25px;
+		height: 3px;
+		background-color: #000;
 	}
 
 	ul {
-		width: 100%;
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3rem;
 		display: flex;
-		gap: 0.5rem;
-		justify-content: center;
-		align-items: center;
 		list-style: none;
-		background: var(--background);
-		background-size: contain;
-
-		a {
-			height: 100%;
-			text-decoration: none;
+		flex-direction: column;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: calc(100vh - 4rem);
+		
+		padding: 1rem;
+		background-color: var(--color-theme-1);
+		display: none;
+		
+		.logo {
+			display: none;
 		}
 
-		li {
-			position: relative;
-			height: 100%;
-
-			display: flex;
-			height: 100%;
-			align-items: center;
+		a {
+			text-decoration: none;
 			color: #010a88;
 			font-weight: 500;
 			text-transform: uppercase;
 			font-size: 1.15rem;
 
-			cursor: pointer;
+			&:last-child li {
+				margin-bottom: 0;
+			}
+
+			&.year {
+				display: none;
+			}
+
+			&:hover {
+				color: #0091ff;
+			}
+			
+			li {
+				cursor: pointer;
+				margin-bottom: 1rem;
+			}
 		}
 	}
-	ul li.thisYear {
-		font-size: 24px;
-		font-weight: 900;
-	}
-	ul li.pastYear {
-		font-size: 24px;
-		font-weight: 300;
-		color: #333;
-	}
-	ul a:not(:last-child) li:not(.thisYear, .pastYear) {
-		margin-right: 1rem;
+
+	.menu-open {
+		display: block;
 	}
 
-	.fill {
-		flex-grow: 1;
+	@media (min-width: 680px) {
+		nav {
+			& > .logo, .menu-icon, .menu-spacer {
+				display: none;
+			}
+			
+			ul {
+				display: flex;
+				position: relative;
+				top: unset;
+				left: unset;
+				height: 100%;
+				width: 100%;
+
+				padding: 0;
+				flex-direction: row;
+				gap: 0.5rem;
+				order: 0;
+
+				.logo {
+					display: flex;
+					flex-grow: 1;
+					justify-content: left;
+				}
+
+				a {
+					height: 100%;
+
+					&:not(:last-child, .year) li {
+						margin-right: 0.5rem;
+					}
+
+					li {
+						height: 100%;
+						display: flex;
+						align-items: center;
+						margin-bottom: 0;
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+
+		ul li.thisYear {
+			font-size: var(--font-size-small-header);
+			font-weight: 900;
+		}
+
+		ul li.pastYear {
+			font-size: var(--font-size-small-header);
+			font-weight: 300;
+			color: #333;
+		}
+	}
+	@media (min-width: 950px) {
+		nav {
+			ul {
+				.year {
+					display: flex;
+				}
+				
+				.logo {
+					justify-content: center;
+				}
+				
+				a {
+					&:not(:last-child, .year) li {
+						margin-right: 1rem;
+					}
+
+					li {
+						font-size: 1.15rem;
+					}
+				}
+			}
+		}
 	}
 
-	nav li img {
-		height: 100%;
-		filter: brightness(0);
-		margin-left: 0.5rem;
-	}
-
-	a:hover {
-		color: #0091ff;
+	@media (min-width: 769px) {
+		
 	}
 </style>

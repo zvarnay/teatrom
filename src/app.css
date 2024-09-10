@@ -6,6 +6,11 @@
     --color-text: #333;
     font-family: var(--font-body);
 	color: var(--color-text);
+
+	--font-size-body: 1rem;
+	--font-size-small-header: 1.25rem;
+	--font-size-header: 1.5rem;
+	--font-size-page-header: 2rem;
 }
 
 * {
@@ -37,11 +42,11 @@ h1, h2, p {
 }
 
 h1 {
-	font-size: 2rem;
+	font-size: var(--font-size-page-header);
 }
 
 h2 {
-	font-size: 1rem;
+	font-size: var(--font-size-small-header);
 }
 
 p {
@@ -55,4 +60,13 @@ a {
     &:hover {
         text-decoration: underline;
     }
+}
+
+@media (min-width: 680px) {
+	:root {
+		--font-size-body: 1.25rem;
+		--font-size-small-header: 1.5rem;
+		--font-size-header: 2rem;
+		--font-size-page-header: 3rem;
+	}
 }

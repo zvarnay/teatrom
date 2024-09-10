@@ -4,8 +4,6 @@ export function createD3Map(svg, villages) {
     const circle = d3.select(svg).selectAll('circle');
 
     villages.forEach((village) => {
-        console.log(village);
-
         circle
             .data([village.mapPosition])
             .enter()

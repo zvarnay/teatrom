@@ -27,6 +27,7 @@
 		"contentful": "^10.15.0",
 		"d3": "^7.9.0",
 		"dotenv": "^16.4.5",
-		"express": "^4.19.2"
+		"express": "^4.19.2",
+		"graphql-request": "^7.1.0"
 	}
 }
