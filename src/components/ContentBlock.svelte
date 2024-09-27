@@ -37,6 +37,7 @@
         padding: 3rem 2rem;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
         background-size: cover;
+        min-height: 90vh;
         
         position: relative;
         z-index: 2;
@@ -59,19 +60,21 @@
         width: 100%;
 
         &.twoColumn {
-            max-width: 72rem;
+            max-width: 64rem;
         }
     }
 
     .grid {
         display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .grid :global(img) {
-        width: 33%;
-        max-width: 24rem;
-        margin-right: 2rem;
+        width: 100%;
         height: fit-content;
+        max-width: 16rem;
+        height: intrinsic;
     }
 
     h2 {
@@ -91,7 +94,7 @@
     }
 
     section :global(p) {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         font-size: var(--font-size-body);
         line-height: 1.5;
     }
@@ -102,9 +105,18 @@
         gap: 0 2rem;
     }
 
-    @media (min-width: 680px) {
+    @media (min-width: 500px) {
         section {
             min-height: 90vh;
+
+            .grid {
+                flex-direction: row;
+            }
+
+            .grid :global(img) {
+                width: 33%;
+                margin-right: 2rem;
+            }
 
             &.mini {
                 padding: 6rem 2rem;
