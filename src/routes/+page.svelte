@@ -1,10 +1,21 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import ContentBlock from "../components/ContentBlock.svelte";
 
     import DonateBlock from "../components/DonateBlock.svelte";
     import InteractiveMap from "../components/InteractiveMap.svelte";
+    import ScheduleBlock from "../components/ScheduleBlock.svelte";
 
     export let data: { villages: any[] };
+    let screenWidth = 0;
+    
+    onMount(() => {
+        screenWidth = window.innerWidth;
+
+        window.addEventListener("resize", () => {
+            screenWidth = window.innerWidth;
+        });
+    });
 </script>
 
 <section id="page">
@@ -15,7 +26,11 @@
       image="/images/2.png"
     />
 
-    <InteractiveMap villages={data.villages} />
+    {#if screenWidth > 1000}
+        <InteractiveMap villages={data.villages} />
+    {:else}
+        <ScheduleBlock villages={data.villages} selectedVillage={data.villages[0]} />
+    {/if}
 
     <ContentBlock 
       title="Budapest nap október 12-én" 
