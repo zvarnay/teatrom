@@ -55,6 +55,8 @@
         margin-right: 1rem;
         margin-left: auto;
 
+        max-width: 100%;
+
         display: grid;
         grid-template-columns: minmax(200px, 800px) 350px;
         gap: 5rem;

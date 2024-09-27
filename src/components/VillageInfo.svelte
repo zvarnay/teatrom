@@ -5,7 +5,7 @@
 {#if village}
     <a class="wrapper" href="/schedule"><div class="villageInfo">
         <div class="horizontalSplit">
-            <img src={village.silhouetteImage.url} alt={village.name} />
+            <img src="/images/{village.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}.svg" alt={village.name} />
             <div>
                 <h2>{village.name}</h2>
                 <p class="date">{(new Date(village.date)).toLocaleDateString('hu-HU')}</p>
@@ -59,6 +59,7 @@
                 width: 3rem;
                 height: 3rem;
                 object-fit: contain;
+                transform: scale(1.3);
             }
 
             h2 {

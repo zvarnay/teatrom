@@ -5,11 +5,12 @@
 
 <section id="detailedSchedules">
     <div class="contentWrapper">
+        <h1>Összefoglaló</h1>
         <div class="grid">
             <aside class="menu">
                 {#each villages as village}
                 <div class="imageContainer" class:active={village.name == selectedVillage.name} on:click={() => selectedVillage = village}>
-                    <img src="/images/{village.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}.png" alt="">
+                    <img src="/images/{village.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}.svg" alt="">
                 </div>
                 {/each}
             </aside>
@@ -37,6 +38,24 @@
 </section>
 
 <style lang="scss">
+    h1 {
+        position: relative;
+        width: fit-content;
+        width: 100%;
+        text-align: center;
+        margin-top: -1.5rem;
+        margin-bottom: 2rem;
+        padding: 0.5rem 1.5rem;
+        text-align: center;
+
+        font-weight: 500;
+        color: var(--color-theme-2);
+        padding-top: 6px;
+        padding-bottom: 6px;
+        border-top: 2px solid var(--color-theme-2);
+        border-bottom: 2px solid var(--color-theme-2);
+    }
+    
     section {
         min-height: 90vh;
         display: flex;
@@ -62,7 +81,6 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
-
         
         aside {
             display: flex;
@@ -70,7 +88,7 @@
             gap: 0.5rem;
 
             height: fit-content;
-            padding: 0.5rem;
+            padding: 6px;
             border-radius: 10rem;
             border: 2px solid #f0f;
 
@@ -79,7 +97,7 @@
                 aspect-ratio: 1 / 1;
                 border-radius: 50%;
                 overflow: hidden;
-                padding: 6px;
+                padding: 5px;
 
                 &.active {
                     background-color: #f0f;
@@ -162,10 +180,10 @@
     
     @media (min-width: 680px) {
         .grid {
-            grid-template-columns: calc(74px + 1rem) 1fr;
+            grid-template-columns: calc(74px + 12px) 1fr;
             gap: 2rem;
 
-            .villageInfo h2 {
+            article .villageInfo h2 {
                 margin-top: 0;
             }
 

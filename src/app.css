@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
 :root {
     --font-body: 'montserrat', sans-serif;
     --color-theme-1: #f4e0cb;
@@ -42,7 +44,7 @@ h1, h2, p {
 }
 
 h1 {
-	font-size: var(--font-size-page-header);
+	font-size: var(--font-size-header);
 }
 
 h2 {

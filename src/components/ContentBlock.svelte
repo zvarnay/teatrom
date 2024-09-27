@@ -10,6 +10,7 @@
 
 <section
     style="background: {background}; background-size: cover; background-position: center;"
+    class="contentBlock"
     class:mini={mini}
     class:whiteText={whiteText}
 >
@@ -19,7 +20,9 @@
                 <img src={image} alt="" />
             {/if}
             <div>
-                <h2>{title}</h2>
+                {#if title}
+                    <h2>{title}</h2>
+                {/if}
                 <div class="textContainer">{@html body}</div>
             </div>
         </div>
@@ -74,6 +77,17 @@
     h2 {
         font-size: var(--font-size-header);
         font-weight: 600;
+    }
+
+    :global(.contentBlock ul) {
+        padding: 0;
+    }
+
+    :global(.contentBlock ul li) {
+        margin: 0;
+        padding: 4px 0;
+        margin-left: 1rem;
+        color: #fff;
     }
 
     section :global(p) {

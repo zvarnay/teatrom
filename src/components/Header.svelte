@@ -1,14 +1,21 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
+    import { onMount } from 'svelte';
 	let menuOpen = false;
 
 	const toggleMenu = () => {
 		menuOpen = !menuOpen;
 	};
 
-	// Close the menu when the page changes
 	page.subscribe(() => {
 		menuOpen = false;
+	});
+
+	onMount(() => {
+		// close menu on resize
+		window.addEventListener('resize', () => {
+			menuOpen = false;
+		});
 	});
 </script>
 
@@ -39,9 +46,10 @@
 
 			<a href='/donate/'><li>Támogatás</li></a>
 			<a href='/schedule/'><li>Programok</li></a>
-			<a href='/tickets/'><li>Jegyek</li></a>
+			<a href='/archive/' class="hideOnDesktop"><li>Archívum</li></a>
 			<a href='/about/'><li>Rólunk</li></a>
-			<a href='/archive/'><li>Archívum</li></a>
+			<a href='/press/'><li>Sajtó</li></a>
+			<a href='/contact/'><li>Kapcsolat</li></a>
 		</ul>
 	</nav>
 </header>
@@ -110,6 +118,7 @@
 		height: calc(100vh - 4rem);
 		
 		padding: 1rem;
+		padding-top: 2rem;
 		background-color: var(--color-theme-1);
 		display: none;
 		
@@ -147,7 +156,7 @@
 		display: block;
 	}
 
-	@media (min-width: 680px) {
+	@media (min-width: 800px) {
 		nav {
 			& > .logo, .menu-icon, .menu-spacer {
 				display: none;
@@ -201,7 +210,7 @@
 			color: #333;
 		}
 	}
-	@media (min-width: 950px) {
+	@media (min-width: 980px) {
 		nav {
 			ul {
 				.year {
@@ -213,6 +222,10 @@
 				}
 				
 				a {
+					&.hideOnDesktop {
+						display: none;
+					}
+
 					&:not(:last-child, .year) li {
 						margin-right: 1rem;
 					}

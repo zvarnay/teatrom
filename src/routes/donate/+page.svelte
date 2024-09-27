@@ -7,13 +7,11 @@
 <section>
     <HeaderBlock title="Támogatás" />
     <ContentBlock
-        title="Csak rád számíthatunk"
-        body="<p>Ezért és azért is nagyon rossz nekünk, senki - de konkrétan senki - nem ad semmit, szóval csak rád számíthatunk. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet doloremque aspernatur explicabo numquam assumenda nisi, fuga, ea autem nihil, quas cupiditate. Nulla minus sequi deleniti unde molestias, ipsum fugit porro.</p>"
-        mini={true}
-    />
-    <ContentBlock
-        title="Már ezt és ezt elértük"
-        body="<p>Már csomó eredménye van ennek a dolognak, nagyon jó. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet doloremque aspernatur explicabo numquam assumenda nisi, fuga, ea autem nihil, quas cupiditate. Nulla minus sequi deleniti unde molestias, ipsum fugit porro.</p><p>[GALÉRIA?]</p>"
+        title="Támogass minket!"
+        body="
+            <p>A fesztivál lehetőséget ad arra, hogy a közösségek magas színvonalú művekel és kiemelkedő a művészekkel találkozzanak, és átéljék az egyetemes és a roma kultúra különleges értékeit, egyedi létjogosultságát Európa kultúráinak sorában. Ebben az értelemben a TeatRom program a romaság színház-kultúrájának európai fejlődését is szolgálja.</p>
+            <p>Előre is köszönjük minden támogatónknak, még a legkisebb adományt is, amellyel  hozzájárul ahhoz, hogy az aktuális fesztivál előkészítéséhez szükséges művészi, pedagógiai, szociális és szervezői munka, valamint a fesztivál idején a programok lebonyolítása megfelelő színvonalon zajlódhassanak.</p>
+        "
         background="url(/images/figures-5.webp)"
     />
     <DonateBlock />

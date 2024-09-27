@@ -28,6 +28,8 @@
 		"d3": "^7.9.0",
 		"dotenv": "^16.4.5",
 		"express": "^4.19.2",
-		"graphql-request": "^7.1.0"
+		"graphql-request": "^7.1.0",
+		"pdfjs-dist": "^4.6.82",
+		"svelte-pdf": "^1.0.20"
 	}
 }

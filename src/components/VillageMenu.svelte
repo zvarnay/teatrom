@@ -31,19 +31,21 @@
 
 </script>
 
-<section id="villages">
-    <div class="grid">
-        {#each villages as village}
-            <article
-                on:click={handleVillageMenuClick(village)}
-                on:mouseenter={setHoveredVillage(village)}
-                on:mouseleave={clearHoveredVillage(village)}
-            >
-                <div class="imgContainer">
-                    <img src="/images/{village.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}.png" alt="">
-                </div>
-            </article>
-        {/each}
+<section id="villages" role="menubar" tabindex="0">
+    <div class="gridContainer">
+        <div class="grid">
+            {#each villages as village}
+                <article
+                    on:click={handleVillageMenuClick(village)}
+                    on:mouseenter={setHoveredVillage(village)}
+                    on:mouseleave={clearHoveredVillage}
+                >
+                    <div class="imgContainer">
+                        <img src="/images/{village.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}.svg" alt="">
+                    </div>
+                </article>
+            {/each}
+        </div>
     </div>
     {#if hoveredVillage}
         <div class="selectedVillage">
@@ -54,27 +56,31 @@
 
 <style lang="scss">
     #villages {
-        height: 6rem;
         position: relative;
-        margin: -3rem 0;
         z-index: 3;
+        height: 3rem;
+        margin: 0rem -1rem;
+
+        .gridContainer {
+            background: var(--color-theme-1);
+            width: 100%;
+        }
 
         .grid {
-            background: var(--color-theme-1);
             width: max-content;
             height: 100%;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(5, minmax(50px, 60px));
+            grid-template-columns: repeat(5, 50px);
             align-items: center;
-            gap: 1rem;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.5rem;
             border-radius: 5rem;
 
             article {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                padding: 0 7px;
                 gap: 0;
 
                 &:hover {
@@ -88,8 +94,8 @@
 
                 .imgContainer {
                     width: 100%;
+                    max-height: 60px;
                     aspect-ratio: 1 / 1;
-                    padding: 0;
                     border-radius: 50%;
                     border: 2px solid var(--color-theme-1);
                     
@@ -127,6 +133,42 @@
                 font-size: 1rem;
                 color: #f0f;
                 text-align: center;
+            }
+        }
+    }
+
+    @media (min-width: 480px) {
+        #villages {
+            height: 4rem;
+            margin: -2rem 0;
+            
+            .gridContainer {
+                max-width: fit-content;
+                height: 100%;
+                margin: 0 auto;
+                border-radius: 10rem;
+
+                .grid {
+                    grid-template-columns: repeat(5, 60px);
+                }
+            }
+        }
+    }
+
+    @media (min-width: 680px) {
+        #villages {
+            height: 6rem;
+            margin: -3rem 0;
+            
+            .gridContainer {
+                max-width: fit-content;
+                height: 100%;
+                margin: 0 auto;
+                border-radius: 10rem;
+
+                .grid {
+                    grid-template-columns: repeat(5, 75px);
+                }
             }
         }
     }
