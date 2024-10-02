@@ -16,9 +16,11 @@
         display: flex;
         align-items: center;
         margin: 0 -1rem;
+        margin-top: -5rem;
         padding: 3rem 1rem;
+        padding-top: 8rem;
         z-index: 2;
-        background-image: url('/images/teatrom-27.jpg');
+        background-image: url('/images/textures/tx-11.webp');
         background-position: 50% 30%;
         background-size: 150vw;
     }
@@ -33,9 +35,8 @@
     }
 
     h1 {
-        font-family: 'univers-black-extended';
         color: #fff;
-        color: var(--color-theme-1);
+        font-weight: 900;
         font-size: var(--font-size-page-header);
         text-align: center;
     }

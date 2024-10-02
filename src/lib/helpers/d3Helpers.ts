@@ -11,7 +11,7 @@ export function createD3Map(svg, villages) {
             .attr('cx', (d) => d.x)
             .attr('cy', (d) => d.y)
             .attr('r', village.mapRadius * 1.2 || 10)
-            .attr('fill', '#f0f')
+            .attr('fill', '#E2007A')
             .style('mix-blend-mode', 'saturation');
 
         circle
@@ -34,7 +34,7 @@ export function createD3Map(svg, villages) {
             .attr('y', (d) => d.y)
             .attr('font-size', 14)
             .attr('font-weight', 600)
-            .attr('fill', '#f0f')
+            .attr('fill', '#E2007A')
             .attr('text-anchor', 'start')
             .attr('alignment-baseline', 'central')
             .attr('stroke', '#ffa')

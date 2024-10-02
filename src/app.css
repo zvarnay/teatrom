@@ -3,9 +3,10 @@
 :root {
     --font-body: 'montserrat', sans-serif;
     --color-theme-1: #f4e0cb;
-    --color-theme-1: #d5fff6;
-    --color-theme-2: #010a88;
-    --color-text: #333;
+    --color-theme-1: #000;
+    --color-theme-2: #E2007A;
+    --color-theme-3: #FFED00;
+    --color-text: #000;
     font-family: var(--font-body);
 	color: var(--color-text);
 

@@ -4,17 +4,21 @@
 
 <section>
     <div class="contentWrapper">
-        <h1>Workshopok</h1>
         <div class="grid">
             <article>
                 <h2>Színházi workshop</h2>
-                <img src="/images/teatrom-28.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quia reiciendis aspernatur sequi facere non ad eius atque distinctio eum ducimus ea, sed, nobis perspiciatis minus unde! Saepe, corrupti vero.</p>
+                <div class="imgContainer">
+                    <img src="/images/teatrom-78.jpg" alt="">
+                </div>
+                <p>Nagyon hálásak vagyunk azért, hogy miközben a frankfurti színház bejárja velünk a hat állomásból álló turnéját, időt szakít arra, hogy minden helyszínen művészeti műhelyeket is ajánljon a település gyerekeinek és az érdeklődőknek. Ezek akrobatika, gólyaláb, zsonglőr játék, hangszeres és színházi gyakorlatok. Előre izgalommal várjuk a workshopokat, amelyeket a társulat tagjai a helyi iskolákban adnak majd(, és a CEUs hallgatókat is, akik önkéntesen, szakmai gyakorlatként csatlakoznak a feladatokhoz.)</p>
             </article>
             <article>
                 <h2>Művészeti workshop</h2>
-                <img src="/images/teatrom-10.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae dolor quaerat error exercitationem maxime debitis earum quos, asperiores ullam odit! Quas perspiciatis ex eius tempore? Nobis, consequatur? Eos, suscipit fugiat?</p>
+                <div class="imgContainer">
+                    <img src="/images/kislany-fest.jpg" alt="">
+                    <img src="/images/monzart-logo.png" alt="" class="logo">
+                </div>
+                <p>A Manzart Rajziskola fiatal oktatói, legnépszerűbb programjukat, a képregény rajzolást hozzák el a gyerekeknek. Segítenek a legmenőbb, kedvenc karakterek életre keltésében, sokféle művészeti technikát mutatnak meg. Az elkészült műveket a résztvevők emlékül hazavihetnek.</p>
             </article>
         </div>
     </div>
@@ -27,8 +31,7 @@
         align-items: center;
         margin: 0 -1rem;
         padding: 3rem 2rem;
-        background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
-        background-size: cover;
+        background: #fff5b2;
         
         position: relative;
         z-index: 2;
@@ -68,11 +71,32 @@
                 font-weight: 600;
             }
 
-            img {
+            .imgContainer {
                 width: 100%;
                 aspect-ratio: 16/9;
-                object-fit: cover;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 margin: 1rem 0;
+                gap: 1rem;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+
+                .logo {
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    min-width: 25%;
+                    width: 100px;
+                    height: auto;
+                    margin: 0;
+                }
             }
 
             p {

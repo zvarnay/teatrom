@@ -5,7 +5,7 @@
 
 <section id="detailedSchedules">
     <div class="contentWrapper">
-        <h1>Összefoglaló</h1>
+        <h1>Program</h1>
         <div class="grid">
             <aside class="menu">
                 {#each villages as village}
@@ -90,7 +90,7 @@
             height: fit-content;
             padding: 6px;
             border-radius: 10rem;
-            border: 2px solid #f0f;
+            border: 2px solid #E2007A;
 
             .imageContainer {
                 width: 45px;
@@ -100,7 +100,7 @@
                 padding: 5px;
 
                 &.active {
-                    background-color: #f0f;
+                    background-color: #E2007A;
 
                     img {
                         filter: brightness(10);

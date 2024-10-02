@@ -6,6 +6,7 @@
     export let background = "";
     export let whiteText = false;
     export let mini = false;
+    export let textBoxBackground = "";
 </script>
 
 <section
@@ -19,7 +20,7 @@
             {#if image}
                 <img src={image} alt="" />
             {/if}
-            <div>
+            <div style="background: {textBoxBackground}" class:hasTextBox={!!textBoxBackground}>
                 {#if title}
                     <h2>{title}</h2>
                 {/if}
@@ -36,6 +37,7 @@
         margin: 0 -1rem;
         padding: 3rem 2rem;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
+        background: #d2c570;
         background-size: cover;
         min-height: 90vh;
         
@@ -68,6 +70,10 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        .hasTextBox {
+            padding: 2rem;
+        }
     }
 
     .grid :global(img) {
@@ -100,8 +106,7 @@
     }
 
     .textContainer {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: block;
         gap: 0 2rem;
     }
 

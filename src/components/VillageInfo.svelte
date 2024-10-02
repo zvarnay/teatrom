@@ -50,6 +50,7 @@
 		padding: 1rem 2rem;
 		border-radius: 4px;
 		background: var(--color-theme-1);
+        color: #fff;
 
         .horizontalSplit {
             display: flex;
@@ -72,7 +73,7 @@
             font-weight: 400;
             margin-top: 1rem;
             padding-bottom: 5px;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid #fff;
         }
 	}
 	.events {

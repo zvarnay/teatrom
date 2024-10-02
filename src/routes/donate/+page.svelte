@@ -7,12 +7,12 @@
 <section>
     <HeaderBlock title="Támogatás" />
     <ContentBlock
-        title="Támogass minket!"
+        title="Filléres gondok!"
         body="
-            <p>A fesztivál lehetőséget ad arra, hogy a közösségek magas színvonalú művekel és kiemelkedő a művészekkel találkozzanak, és átéljék az egyetemes és a roma kultúra különleges értékeit, egyedi létjogosultságát Európa kultúráinak sorában. Ebben az értelemben a TeatRom program a romaság színház-kultúrájának európai fejlődését is szolgálja.</p>
-            <p>Előre is köszönjük minden támogatónknak, még a legkisebb adományt is, amellyel  hozzájárul ahhoz, hogy az aktuális fesztivál előkészítéséhez szükséges művészi, pedagógiai, szociális és szervezői munka, valamint a fesztivál idején a programok lebonyolítása megfelelő színvonalon zajlódhassanak.</p>
+            <p>Az elmúlt évtized során egyre világosabbá vált, hogy munkánk finanszírozását nem várhatjuk a magyar államtól. A fesztivál fennmaradását idén is magánszemélyeknek és európai partnerprogramoknak köszönhetjük, amelyek előadásokkal és önkéntes munkával támogatják kezdeményezésünket. Ez természetesen nem elég, a fesztivál lebonyolításához számos olyan szolgáltatás szükséges, amely csak piaci áron beszerezhető. Ebben az évben a fesztivál megrendezésének járulékos költségeire, közelítőleg négy és fél millió forintra közösségi gyűjtést szervezünk.</p>
+            <p>Előre is köszönjük minden támogatónknak még a legkisebb adományt is, amellyel hozzájárul ahhoz, hogy az előkészítéshez szükséges művészi, pedagógiai, szociális és szervezői munka, valamint a fesztivál idején a programok lebonyolítása megfelelő színvonalon zajlódhasson.</p>
         "
-        background="url(/images/figures-5.webp)"
+        background="#d2c570"
     />
     <DonateBlock />
 </section>

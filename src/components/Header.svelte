@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
     import { onMount } from 'svelte';
+	
+	export let disableTransprancy = false;
+
+	let transparentMenu = true;
 	let menuOpen = false;
 
 	const toggleMenu = () => {
@@ -16,10 +20,20 @@
 		window.addEventListener('resize', () => {
 			menuOpen = false;
 		});
+
+		window.addEventListener('scroll', () => {
+			if (disableTransprancy) {
+				transparentMenu = false;
+				return;
+			}
+			
+			const opaqueHeight = (window.innerHeight * 0.4) - 12;
+			transparentMenu = window.scrollY < opaqueHeight;
+		});
 	});
 </script>
 
-<header>
+<header class:transparent={transparentMenu}>
 	<nav>
 		<div class="menu-icon" on:click={toggleMenu}>
 			<span class="burger"></span>
@@ -28,7 +42,7 @@
 		</div>
 		
 		<div class="logo">
-			<a href="/"><img src="/images/logo-black.png" alt="Logo"></a>
+			<a href="/"><img src="/images/logo.png" alt="Logo"></a>
 		</div>
 		
 		<div class="menu-spacer"></div>
@@ -41,7 +55,7 @@
 			<a class="year" href="/"><li class="thisYear">'24</li></a>
 
 			<li class="logo"><a href="/">
-				<img src="/images/logo-black.png" alt="Logo">
+				<img src="/images/logo.png" alt="Logo">
 			</a></li>
 
 			<a href='/donate/'><li>Támogatás</li></a>
@@ -61,7 +75,7 @@
 		left: 0;
 		width: 100%;
 		z-index: 4;
-		background-color: var(--color-theme-1);
+		background-color: #000;
 	}
 
 	nav {
@@ -119,7 +133,6 @@
 		
 		padding: 1rem;
 		padding-top: 2rem;
-		background-color: var(--color-theme-1);
 		display: none;
 		
 		.logo {
@@ -129,6 +142,7 @@
 		a {
 			text-decoration: none;
 			color: #010a88;
+			color: #fff;
 			font-weight: 500;
 			text-transform: uppercase;
 			font-size: 1.15rem;
@@ -142,7 +156,7 @@
 			}
 
 			&:hover {
-				color: #0091ff;
+				text-decoration: underline;
 			}
 			
 			li {
@@ -157,6 +171,13 @@
 	}
 
 	@media (min-width: 800px) {
+		header.transparent {
+			background-color: transparent;
+
+			.logo {
+				height: 140%;
+			}
+		}
 		nav {
 			& > .logo, .menu-icon, .menu-spacer {
 				display: none;
@@ -207,7 +228,7 @@
 		ul li.pastYear {
 			font-size: var(--font-size-small-header);
 			font-weight: 300;
-			color: #333;
+			color: #fff;
 		}
 	}
 	@media (min-width: 980px) {

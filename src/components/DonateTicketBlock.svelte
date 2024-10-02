@@ -124,7 +124,7 @@
             }
             
             &:hover button {
-                background-color: #f0f;
+                background-color: #E2007A;
             }
         }
     }

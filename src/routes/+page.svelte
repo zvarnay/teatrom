@@ -19,13 +19,6 @@
 </script>
 
 <section id="page">
-    <ContentBlock 
-      title="TeatRom" 
-      body="<p>Célunk, hogy a művészeti javakhoz való hozzáférés a szegregációban élő fiatalok és felnőttek számára segítsen rátalálni azokra az utakra, amelyeken elindulva, ki-ki eséllyel hagyhatja maga mögött a szegénység reá rótta korlátokat, miközben mentális egészsége, társadalmi biztonságérzete, énereje, készségei és képességei fejlődnek. Munkánk célja az is, hogy a kortárs egyetemes és magyar roma kultúra alkotóinak támogatásával, műveik célba juttatásával hozzájáruljunk a legnagyobb velünk élő nép szellemi, művészeti és kulturális életének gazdagításához.</p>"
-      style="twoColumn"
-      image="/images/2.png"
-    />
-
     {#if screenWidth > 1000}
         <InteractiveMap villages={data.villages} />
     {:else}
@@ -33,12 +26,20 @@
     {/if}
 
     <ContentBlock 
-      title="Budapest nap október 12-én" 
+      title="Színházat mindenkinek!" 
+      body="<p>Célunk, hogy a szegregációban élő fiatalok és felnőttek számára a művészeti javak segítsenek rátalálni azokra az utakra, amelyeken elindulva, ki-ki eséllyel hagyhatja maga mögött a szegénység korlátait, miközben mentális egészsége, társadalmi biztonságérzete, énereje, készségei és képességei fejlődnek. Munkánk célja az is, hogy a kortárs egyetemes és magyar roma kultúra alkotóinak támogatásával, műveik célba juttatásával hozzájáruljunk a legnagyobb velünk élő nép szellemi, művészeti és kulturális életének gazdagodásához.</p>
+      <p>A TeatRom hátterében az Utcaszínházi Alkotóközösség közel húsz éves, Magyarország legszegényebb vidékére szabott művészet-pedagógiai, pszichológiai programja áll. Fesztiválunk a hosszú távú pedagógiai és közösségteremtő munka kiemelt eseménye.</p>"
+    />
+
+    <ContentBlock 
+      title="Csatlakozz hozzánk Budapesten október 12-én" 
       body="
+      <img src='/images/budapest_plakat_negyzet.jpg' alt='Budapest nap' style='float: right; margin-left: 8px; width: 40%'; aspect-ratio: 1 / 1;' />
       <p>A Józsefvárosi önkormányzat vendégszeretetének köszönhetően, történetében persze korántsem először, Borsod megyén kívül is bemutatkozik a fesztivál. A programok részletes leírását <a href='/schedule'>itt</a> találod.</p>
       <p>Mátyás tér</p>
       <ul>
-        <li>12:00 – Műveszeti műhely gyerekeknek</li>
+        <li>13:00 – Műveszeti műhely gyerekeknek</li>
+        <li>14:00 – Csörgőkezű, Vödörjáró, Dobhasú</li>
         <li>15:00 – a Made in Gypsystan! gálaműsora</li>
       </ul>
       <p>Dankó udvar</p>
@@ -50,8 +51,9 @@
         <li>18:00 – Hamu, a frankfurti Antagon Theater előadása</li>
       </ul>
       "
-      background="url(/images/textures/tx-10.webp)"
+      background="url(/images/textures/tx-12.webp)"
       whiteText={true}
+      textBoxBackground="#000"
     />
 
     <DonateBlock />

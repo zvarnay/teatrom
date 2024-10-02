@@ -25,13 +25,13 @@
 
 <section>
     <HeaderBlock title="Archívum {data.year}" />
-    {#if !!pdf_url}
+    <!-- {#if !!pdf_url}
     <PdfBlock
         pdf_url={pdf_url}
         title="A {data.year}-{asOrEs[String(data.year).slice(-1)]} fesztivál plakátjai"
         body="<p>Itt találhatóak a {data.year}-{asOrEs[String(data.year).slice(-1)]} helyszínek és programok.</p>"
     />
-    {/if}
+    {/if} -->
     <DonateBlock />
 </section>
 

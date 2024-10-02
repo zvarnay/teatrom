@@ -125,13 +125,13 @@
             transform: translate(-50%, -50%);
             z-index: 3;
             background-color: var(--color-theme-1);
-            border: 1px solid #f0f;
+            border: 1px solid #E2007A;
             padding: 6px 12px;
             border-radius: 5rem;
 
             h2 {
                 font-size: 1rem;
-                color: #f0f;
+                color: #E2007A;
                 text-align: center;
             }
         }

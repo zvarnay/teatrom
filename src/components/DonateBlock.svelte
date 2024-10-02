@@ -4,7 +4,7 @@
             <div class="textContainer">
                 <h2>Tedd lehetővé idén is!</h2>
                 <p>
-                    A TeatRom fesztivál idén is elhozza a színház gazdag és inspiráló világát öt nagyon szegény borsodi település-közösség számára. A te segítséged nélkül ezt nem tudjuk megtenni.
+                    A TeatRom fesztivál idén is elhozza a színház gazdag és inspiráló világát a Józsefváros és öt nagyon szegény borsodi település-közösség számára. A te segítséged nélkül ezt nem tudjuk megtenni.
                 </p>
             </div>
             <div class="donationOptions">
@@ -45,8 +45,7 @@
         padding: 3rem 2rem;
         z-index: 2;
         background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
-        background-image: url('/images/textures/tx-1.webp');
-        background-image: url('/images/donatebg-2.png');
+        background-image: url('/images/textures/tx-13.webp');
         background-position: top right;
         background-size: cover;
     }
@@ -98,8 +97,8 @@
 
             padding: 1rem;
             border-radius: 0.5rem;
-            background: var(--color-theme-1);
-            color: var(--color-theme-2);
+            background: #000;
+            color: #fff;
             box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 
             &.customAmount h3 {
@@ -116,15 +115,15 @@
                 padding: 0.5rem;
                 border: none;
                 border-radius: 0.5rem;
-                background: var(--color-theme-2);
-                color: #fff;
+                background: #FFED00;
+                color: #000;
                 font-weight: 900;
                 cursor: pointer;
                 transition: opacity 0.3s;
             }
             
             &:hover button {
-                background-color: #f0f;
+                background-color: #E2007A;
             }
         }
     }

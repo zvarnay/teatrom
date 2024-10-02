@@ -30,8 +30,7 @@
         align-items: center;
         margin: 0 -1rem;
         padding: 3rem 2rem;
-        background-image: linear-gradient(90deg, #f5f1cd, #eda87b);
-        background-size: cover;
+        background: #000;
         
         position: relative;
         z-index: 2;
@@ -50,6 +49,10 @@
                 background: var(--color-theme-2);
                 box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 
+                a {
+                    color: #fff;
+                }
+
                 img {
                     margin-top: 1rem;
                     width: 100%;
@@ -59,12 +62,13 @@
                     margin-top: 1rem;
                     font-size: var(--font-size-subheader);
                     font-weight: 600;
+                    color: #fff;
                 }
 
                 p {
                     margin-top: 0rem;
                     font-size: var(--font-size-caption);
-                    color: var(--color-text-light);
+                    color: #fff;
                 }
             }
         }
@@ -82,6 +86,7 @@
     h2 {
         font-size: var(--font-size-header);
         font-weight: 600;
+        color: #fff;
     }
 
     section :global(p) {
