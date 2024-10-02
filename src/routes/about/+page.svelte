@@ -14,4 +14,5 @@
         "
         background="#fff5b2"
     />
+    <DonateBlock />
 </section>

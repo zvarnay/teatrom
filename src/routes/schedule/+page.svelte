@@ -6,6 +6,7 @@
     import ScheduleBlock from "../../components/ScheduleBlock.svelte";
     import WorkshopBlock from "../../components/WorkshopBlock.svelte";
     import VillageMenu from "../../components/VillageMenu.svelte";
+    import DonateBlock from "../../components/DonateBlock.svelte";
 
     export let data: { villages: any[] };
     let selectedVillage: any;
@@ -106,12 +107,7 @@
         whiteText={true}
     />
     <WorkshopBlock />
-    <ContentBlock
-        title="Vissza föl"
-        body=""
-        background="#000"
-        whiteText={true}
-    />
+    <DonateBlock />
 </section>
 
 <style lang="scss">
