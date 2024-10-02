@@ -1,5 +1,6 @@
 <script lang="ts">
     import ContentBlock from "../../components/ContentBlock.svelte";
+    import DonateBlock from "../../components/DonateBlock.svelte";
     import HeaderBlock from "../../components/HeaderBlock.svelte";
 </script>
 
