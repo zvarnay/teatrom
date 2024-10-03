@@ -3,7 +3,7 @@
 </script>
 
 {#if village}
-    <a class="wrapper" href="/schedule"><div class="villageInfo">
+    <div class="villageInfo">
         <div class="horizontalSplit">
             <img src="/images/{village.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}.svg" alt={village.name} />
             <div>
@@ -30,19 +30,10 @@
                 </li>
             {/each}
         </ul>
-    </div></a>
+    </div>
 {/if}
 
 <style lang="scss">
-    a.wrapper {
-        text-decoration: none;
-        color: inherit;
-
-        &:hover .villageInfo {
-            outline: 2px solid var(--color-theme-2);
-        }
-    }
-
     .villageInfo {
         max-width: 500px;
 		display: flex;

@@ -1,7 +1,11 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
-export const language = writable('en');
+// Check localStorage or default to 'en'
+const initialLanguage = 'hu';
+console.log(initialLanguage);
+
+export const language = writable(initialLanguage);
 
 // Sync store with localStorage when the language changes
 language.subscribe((value) => {

@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ request, cookies }) => {
         cookies.set('language', langCode, { path: '/' });
     }
 
-    langCode = 'en'; // Force Hungarian for now
+    langCode = 'hu'; // Force Hungarian for now
 
     // Redirect to the preferred language
     throw redirect(308, `/${langCode}`);

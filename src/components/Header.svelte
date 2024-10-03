@@ -35,9 +35,12 @@
 			}
 		}
 	});
-
+	
 	onMount(() => {
-		currentLanguage = get(language);
+		console.log('Header language:', currentLanguage);
+
+		currentLanguage = window.location.pathname.split('/')[1];
+		language.set(currentLanguage);
 
 		if (window.location.pathname === '/hu' || window.location.pathname === '/en') {
 			disableTransprancy = true;
@@ -58,20 +61,16 @@
 			const opaqueHeight = (window.innerHeight * 0.4) - 12;
 			transparentMenu = window.scrollY < opaqueHeight;
 		});
-
-
 	});
 
 	// Switch the locale and update the URL path
 	async function switchLocale() {
 		language.update((lang) => lang === 'en' ? 'hu' : 'en');
-		const newLanguage = get(language);
+		currentLanguage = get(language);
 		
 		// Update the URL to include the new language
-		const newPath = `/${newLanguage}${window.location.pathname.substring(3)}`;
-		await goto(newPath);  // navigate to the new path with the updated language
-		// Reload the page to fetch the new language's content
-		window.location.reload();
+		const newPath = `/${currentLanguage}`;
+		window.location.href = newPath;
 	}
 </script>
 

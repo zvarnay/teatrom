@@ -5,10 +5,8 @@ import { language } from '$lib/contentfulStore';
 
 export const load: LayoutServerLoad = async ({ params }) => {
   // Capture the language from the URL path
-  const langCode = params.lang || 'en'; // default to 'en' if not provided
-
-  // Set the language store 
-  language.update((lang) => lang === 'en' ? 'hu' : 'en'); 
+  const availableLocales = ['en', 'hu'];
+  const langCode = availableLocales.includes(params.lang) ? params.lang : 'en';
 
   const query = gql`
     query {

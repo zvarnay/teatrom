@@ -1,4 +1,7 @@
+import { goto } from '$app/navigation';
+import { language } from '$lib/contentfulStore';
 import * as d3 from 'd3';
+import { get } from 'svelte/store';
 
 export function createD3Map(svg, villages) {
     const circle = d3.select(svg).selectAll('circle');
@@ -42,6 +45,14 @@ export function createD3Map(svg, villages) {
             .attr('paint-order', 'stroke')
             .attr('dx', village.mapRadius * 1.6)
             .text((new Date(village.date)).toLocaleDateString('hu-HU', { month: 'short', day: '2-digit'}).toUpperCase());
+    });
+
+    d3.select(svg).selectAll('circle').on('click', async (event, d) => {
+        await goto(`/${get(language)}/schedule`);
+        const detailedSchedule = document.getElementById("detailedSchedule");
+        if (detailedSchedule) {
+            detailedSchedule.scrollIntoView({ behavior: "smooth" });
+        }
     });
 }
 
