@@ -1,35 +1,45 @@
+<script lang="ts">
+    import { language } from "$lib/contentfulStore";
+    import { get } from "svelte/store";
+
+    export let contentBlocks;
+    const content = contentBlocks.find((block) => block.sys.id === "5NDeMPdufkmTQA7lUFu9uo");
+    const html = content.body.map((block) => block.content[0].value).join('');
+    
+    const currentLanguage = get(language);
+    const supportText = currentLanguage === "hu" ? "Támogatom" : "Donate";
+</script>
+
 <section id="donate">
     <div class="contentWrapper">
         <div class="grid">
             <div class="textContainer">
-                <h2>Tedd lehetővé idén is!</h2>
-                <p>
-                    A TeatRom fesztivál idén is elhozza a színház gazdag és inspiráló világát a Józsefváros és öt nagyon szegény borsodi település-közösség számára. A te segítséged nélkül ezt nem tudjuk megtenni.
-                </p>
+                <h2>{content.title}</h2>
+                <p>{@html html}</p>
             </div>
             <div class="donationOptions">
                 <a target="_blank" href="https://donate.stripe.com/fZe03L5Mk1r33M44gi">
                     <article class="gold">
                         <h3>20.000</h3>
-                        <button>Támogatom</button>
+                        <button>{supportText}</button>
                     </article>
                 </a>
                 <a target="_blank" href="https://donate.stripe.com/bIY2bT0s01r3aas28b">
                     <article class="silver">
                         <h3>10.000</h3>
-                        <button>Támogatom</button>
+                        <button>{supportText}</button>
                     </article>
                 </a>
                 <a target="_blank" href="https://donate.stripe.com/5kA5o53Ec7Pr82kaEJ">
                     <article>
                         <h3>5.000</h3>
-                        <button>Támogatom</button>
+                        <button>{supportText}</button>
                     </article>
                 </a>
                 <a target="_blank" href="https://donate.stripe.com/28o4k1b6E1r36Yg5kk">
                     <article class="customAmount">
                         <h3>Egyéni összeg</h3>
-                        <button>Támogatom</button>
+                        <button>{supportText}</button>
                     </article>
                 </a>
             </div>

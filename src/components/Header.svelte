@@ -1,11 +1,44 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { navigating, page } from '$app/stores';
     import { onMount } from 'svelte';
+	import { language } from '$lib/contentfulStore';
+	import { get } from 'svelte/store';
+	import { goto } from '$app/navigation';
 	
 	export let disableTransprancy = false;
 
 	let transparentMenu = true;
 	let menuOpen = false;
+
+	let currentLanguage = get(language);
+
+	const headerTexts = {
+		donate: {
+			hu: 'Támogatás',
+			en: 'Donate',
+		},
+		schedule: {
+			hu: 'Programok',
+			en: 'Schedule',
+		},
+		archive: {
+			hu: 'Archívum',
+			en: 'Archive',
+			classes: 'hideOnDesktop',
+		},
+		about: {
+			hu: 'Rólunk',
+			en: 'About',
+		},
+		press: {
+			hu: 'Sajtó',
+			en: 'Press',
+		},
+		contact: {
+			hu: 'Kapcsolat',
+			en: 'Contact',
+		}
+	}
 
 	const toggleMenu = () => {
 		menuOpen = !menuOpen;
@@ -15,7 +48,29 @@
 		menuOpen = false;
 	});
 
+	// if navigating to the homepage, disable transparency, else enable it
+	navigating.subscribe((value) => {
+		if (value) {
+			console.log(value.to?.route.id);
+			if (value.to?.route.id === '/[lang]') {
+				
+				disableTransprancy = true;
+				transparentMenu = false;
+			} else {
+				disableTransprancy = false;
+				transparentMenu = true;
+			}
+		}
+	});
+
 	onMount(() => {
+		console.log(window);
+		
+		if (window.location.pathname === '/hu' || window.location.pathname === '/en') {
+			disableTransprancy = true;
+			transparentMenu = false;
+		}
+		
 		// close menu on resize
 		window.addEventListener('resize', () => {
 			menuOpen = false;
@@ -30,7 +85,21 @@
 			const opaqueHeight = (window.innerHeight * 0.4) - 12;
 			transparentMenu = window.scrollY < opaqueHeight;
 		});
+
+
 	});
+
+	// Switch the locale and update the URL path
+	async function switchLocale() {
+		language.update((lang) => lang === 'en' ? 'hu' : 'en');
+		currentLanguage = get(language);
+		
+		// Update the URL to include the new language
+		const newPath = `/${currentLanguage}${window.location.pathname.substring(3)}`;
+		await goto(newPath);  // navigate to the new path with the updated language
+		// Reload the page to fetch the new language's content
+		window.location.reload();
+	}
 </script>
 
 <header class:transparent={transparentMenu}>
@@ -42,28 +111,26 @@
 		</div>
 		
 		<div class="logo">
-			<a href="/"><img src="/images/logo.png" alt="Logo"></a>
+			<a href="/{currentLanguage}/"><img src="/images/logo.png" alt="Logo"></a>
 		</div>
 		
 		<div class="menu-spacer"></div>
 
 		<ul class:menu-open={menuOpen}>
-			<a class="year" href="/archive/2020/"><li class="pastYear">'20</li></a>
-			<a class="year" href="/archive/2021/"><li class="pastYear">'21</li></a>
-			<a class="year" href="/archive/2022/"><li class="pastYear">'22</li></a>
-			<a class="year" href="/archive/2023/"><li class="pastYear">'23</li></a>
-			<a class="year" href="/"><li class="thisYear">'24</li></a>
+			<button on:click={switchLocale}>{currentLanguage === 'hu' ? 'EN' : 'HU'}</button>
+			<a class="year" href="/{currentLanguage}/archive/2020/"><li class="pastYear">'20</li></a>
+			<a class="year" href="/{currentLanguage}/archive/2021/"><li class="pastYear">'21</li></a>
+			<a class="year" href="/{currentLanguage}/archive/2022/"><li class="pastYear">'22</li></a>
+			<a class="year" href="/{currentLanguage}/archive/2023/"><li class="pastYear">'23</li></a>
+			<a class="year" href="/{currentLanguage}/"><li class="thisYear">'24</li></a>
 
-			<li class="logo"><a href="/">
+			<li class="logo"><a href="/{currentLanguage}/">
 				<img src="/images/logo.png" alt="Logo">
 			</a></li>
 
-			<a href='/donate/'><li>Támogatás</li></a>
-			<a href='/schedule/'><li>Programok</li></a>
-			<a href='/archive/' class="hideOnDesktop"><li>Archívum</li></a>
-			<a href='/about/'><li>Rólunk</li></a>
-			<a href='/press/'><li>Sajtó</li></a>
-			<a href='/contact/'><li>Kapcsolat</li></a>
+			{#each Object.entries(headerTexts) as [key, option]}
+				<a href='/{currentLanguage}/{key}/' class={option['classes'] || ''}><li>{option[currentLanguage]}</li></a>
+			{/each}
 		</ul>
 	</nav>
 </header>

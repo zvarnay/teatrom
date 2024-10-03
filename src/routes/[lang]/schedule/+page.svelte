@@ -1,14 +1,14 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import ContentBlock from "../../components/ContentBlock.svelte";
-    import HeaderBlock from "../../components/HeaderBlock.svelte";
-    import InteractiveMap from "../../components/InteractiveMap.svelte";
-    import ScheduleBlock from "../../components/ScheduleBlock.svelte";
-    import WorkshopBlock from "../../components/WorkshopBlock.svelte";
-    import VillageMenu from "../../components/VillageMenu.svelte";
-    import DonateBlock from "../../components/DonateBlock.svelte";
+    import ContentBlock from "../../../components/ContentBlock.svelte";
+    import HeaderBlock from "../../../components/HeaderBlock.svelte";
+    import InteractiveMap from "../../../components/InteractiveMap.svelte";
+    import ScheduleBlock from "../../../components/ScheduleBlock.svelte";
+    import WorkshopBlock from "../../../components/WorkshopBlock.svelte";
+    import VillageMenu from "../../../components/VillageMenu.svelte";
+    import DonateBlock from "../../../components/DonateBlock.svelte";
 
-    export let data: { villages: any[] };
+    export let data: { villages: any[], contentBlocks: any[] };
     let selectedVillage: any;
 
     onMount(() => {
@@ -25,36 +25,17 @@
     <HeaderBlock title="Programok" />
     <!-- <VillageMenu villages={data.villages} selectedVillage={selectedVillage} on:villageSelected={onVillageSelected} /> -->
     <ContentBlock
-        title="Érdekes helyzet…"
-        body="<p>A fesztivál, amely idén  semmilyen állami forrásból nem kapott támogatást, az utóbbi évek egyik legerősebb programjával rukkol elő. Két Európai program segítségével különleges művek és előadók jutnak el a Cserehát művészetszerető kis településeire. Az öt település idén; Alsóvadász (10.04), Homrogd (10.06), Borsodbóta (10.09), Szendrőlád (10.10) és Sajókaza (10.11).</p><p>A Józsefvárosi önkormányzat vendégszeretetének köszönhetően, történetében persze korántsem először, Borsod megyén kívül is bemutatkozik a fesztivál.</p>"
+        content={data.contentBlocks.find((block) => block.sys.id === "5dHojS2vnjZnZ21fuBNFZX")}
         mini={true}
     />
     {#if selectedVillage}
         <div id="detailedSchedule">
             <ScheduleBlock  villages={data.villages} selectedVillage={selectedVillage} />
         </div>
-        <ContentBlock 
-            title="Csatlakozz hozzánk Budapesten október 12-én" 
-            body="
-            <img src='/images/budapest_plakat_negyzet.jpg' alt='Budapest nap' style='float: right; margin-left: 8px; width: 40%'; aspect-ratio: 1 / 1;' />
-            <p>A Józsefvárosi önkormányzat vendégszeretetének köszönhetően, történetében persze korántsem először, Borsod megyén kívül is bemutatkozik a fesztivál. A programok részletes leírását <a href='/schedule'>itt</a> találod.</p>
-            <p>Mátyás tér</p>
-            <ul>
-                <li>13:00 – Műveszeti műhely gyerekeknek</li>
-                <li>14:00 – Csörgőkezű, Vödörjáró, Dobhasú</li>
-                <li>15:00 – a Made in Gypsystan! gálaműsora</li>
-            </ul>
-            <p>Dankó udvar</p>
-            <ul>
-                <li>16:00 – Marianna Mehr élete, az RS9 színház előadása</li>
-            </ul>
-            <p>Kálvária tér</p>
-            <ul>
-                <li>18:00 – Hamu, a frankfurti Antagon Theater előadása</li>
-            </ul>
-            "
+        <ContentBlock
+            content={data.contentBlocks.find((block) => block.sys.id === "7vgOkZkF55McJFocaLDsdQ")}
             background="url(/images/textures/tx-12.webp)"
-            whiteText={true}
+            whiteText
             textBoxBackground="#000"
         />
     {/if}
@@ -66,7 +47,7 @@
             <p>Az ASHES egy fontos üzenetet közvetít: a világunk változik, a jövő bizonytalan és egyre inkább ráébredünk, hogy a régi, “nagyobb, jobb, gyorsabb” életmód már nem működik. A klímaváltozás és a háborúk valósága arra késztet minket, hogy újragondoljuk, mi igazán fontos az életben. A darab azt kérdezi: amikor minden hamuvá válik, mi marad meg a kultúránkból? Minden vég egy új kezdetet hoz. Vajon melyik Főnixmadár fog feltámadni a hamvainkból? Az ASHES arra ösztönöz, hogy nézzünk vissza a múltunkra, és találjuk meg azokat a kulturális értékeket, amelyek összekötnek minket. Milyen elfeledett dalok, táncok vagy rituálék segíthetnek újraépíteni a közösségeinket és hidakat építeni a különböző kultúrák között?</p>
             <p>Biztosak vagyunk abban, hogy a Kálvária téri programok nemcsak a környék lakóinak, hanem a budapesti közönség számára is a hétvége legvonzóbb eseményei lehetnek!</p>"
         background="#000"
-        whiteText={true}
+        whiteText
     />
     <ContentBlock
         title="„Made in Gypsystan” tehetségkutató gálaműsorok"
@@ -86,7 +67,7 @@
         body="
             <p>Nagyon fontos tudni, hogy az egyes állomásokat ez alkalommal egy helyi szervezőkből álló csapat készíti elő, akiket a SPARCE elnevezésű Kreatív Európa projekt és magyarországi partnereik segítenek a feladatokban. Így a program egyedi filozófiája szerint már ők választották egy menűből azokat az előadásokat, amelyek a fesztiválnap délutáni programjának nyitányai lesznek. Két településén a Cinka Panna színház jön, Szécsi Magda Csörgőkezű, Vödörjáró, Dobhasú című meséjével, a másik három településen Méhes Csaba pantomimjátékát várják - ezek lesznek tehát a színházi délutánok bevezetői a egyes települések számára. Szécsi Magda: Csörgőkezű, Vödörjáró, Dobhasú – zenés mesejáték. A Cigányszínház előadása Budapesten a Kesztyűgyárban is látható lesz.</p>"
         background="#000"
-        whiteText={true}
+        whiteText
     />
     <ContentBlock
         title="Csörgőkezű, Vödörjáró, Dobhasú"
@@ -104,10 +85,10 @@
         body="
             <p>Egész estét betöltő, felhőtlen szórakozást ígérő, vidám pantomim műsor. A könnyű humorú jelenetek, a komikum klasszikus alaphelyzeteire építkeznek, és a klasszikus Decroux-i pantomimtechnika eszközeit vonultatják fel. A néző mindjárt a program legelején különböző közönségjátékok, improvizációk révén résztvevőjévé, aktív szereplőjévé válik a cselekménynek. A műsor vidám etűdjei között helyet kaphatnak mélyebb tartalmat hordozó, groteszk humorú, ugyanakkor közérthető jelenetek is. Az egész program középpontjában az ember, az emberi viselkedésformák, a karakterek, jellemek különbözőségéből adódó – egy kívülálló számára sokszor humoros – helyzetek, konfliktusok állnak. Méhes Csaba a magyar mime és bohóc társadalom egyik legnagyobb mestere, ujja köré tekeri, bevonja, rabul ejti, szüntelenül nevetteti, majd egy-egy pillanatra könnyekre fakasztja mindenkori közönségét!</p>"
         background="#000"
-        whiteText={true}
+        whiteText
     />
     <WorkshopBlock />
-    <DonateBlock />
+    <DonateBlock contentBlocks={data.contentBlocks} />
 </section>
 
 <style lang="scss">

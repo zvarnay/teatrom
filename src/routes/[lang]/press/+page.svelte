@@ -1,8 +1,9 @@
 <script lang="ts">
-    import ContentBlock from "../../components/ContentBlock.svelte";
-    import DonateBlock from "../../components/DonateBlock.svelte";
-    import HeaderBlock from "../../components/HeaderBlock.svelte";
-    import PressBlock from "../../components/PressBlock.svelte";
+    import DonateBlock from "../../../components/DonateBlock.svelte";
+    import HeaderBlock from "../../../components/HeaderBlock.svelte";
+    import PressBlock from "../../../components/PressBlock.svelte";
+
+    export let data: { contentBlocks: any[] };
 </script>
 
 <section>
@@ -24,6 +25,6 @@
             },
         ]}"
     />
-    <DonateBlock />
+    <DonateBlock contentBlocks={data.contentBlocks} />
 </section>
 

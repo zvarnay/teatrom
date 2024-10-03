@@ -1,12 +1,65 @@
 <script lang="ts">
-    export let title;
-    export let body;
-    export let image = null as string | null;
-    export let style = "";
+    import { onMount } from "svelte";
+    
+    export let content;
+
+    let title = "";
+    let body = "";
+    let image = null as string | null;
+    let style = "";
+
     export let background = "";
     export let whiteText = false;
     export let mini = false;
     export let textBoxBackground = "";
+    export let hideTitle = false;
+
+    onMount(() => {
+        if (content) {
+            updateContent(content);
+            return;
+        }
+    });
+
+    function updateContent(contentBlock) {
+        console.dir(contentBlock.body);
+        
+        title = contentBlock.title;
+
+        body = ''
+
+        contentBlock.body.forEach((block) => {
+            if (block.nodeType == 'paragraph') {
+                body += '<p>';
+                block.content.forEach(text => {
+                    if (text.marks.length) {
+                        text.marks.forEach(mark => {
+                            if (mark.type == 'bold') {
+                                body += `<strong>${text.value}</strong>`;
+                            } else if (mark.type == 'italic') {
+                                body += `<em>${text.value}</em>`;
+                            }
+                        });
+                    } else {
+                        body += text.value;
+                    }
+                });
+            } else if (block.nodeType == 'embedded-asset-block') {
+                body += `<img src="${block.image}" />`;
+            } else if (block.nodeType == 'unordered-list') {
+                body += '<ul>';
+                block.content.forEach((listItem) => {
+                    body += `<li>${listItem.content[0].content[0].value}</li>`;
+                });
+                body += '</ul>';
+            }
+        });
+        
+        image = image || contentBlock.image?.url;
+        background = background || contentBlock.backgroundCss as string;
+        whiteText = whiteText || contentBlock.whiteText as boolean;
+    }
+
 </script>
 
 <section
@@ -21,7 +74,7 @@
                 <img src={image} alt="" />
             {/if}
             <div style="background: {textBoxBackground}" class:hasTextBox={!!textBoxBackground}>
-                {#if title}
+                {#if title && !hideTitle}
                     <h2>{title}</h2>
                 {/if}
                 <div class="textContainer">{@html body}</div>
@@ -103,6 +156,7 @@
         margin-top: 1rem;
         font-size: var(--font-size-body);
         line-height: 1.5;
+        white-space: pre-wrap;
     }
 
     .textContainer {

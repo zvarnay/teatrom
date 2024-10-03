@@ -1,6 +1,6 @@
 <script lang="ts">
-    import ContentBlock from "../../components/ContentBlock.svelte";
-    import HeaderBlock from "../../components/HeaderBlock.svelte";
+    import ContentBlock from "../../../components/ContentBlock.svelte";
+    import HeaderBlock from "../../../components/HeaderBlock.svelte";
 </script>
 
 <section>

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import HeaderBlock from "../../../components/HeaderBlock.svelte";
-    import PdfBlock from "../../../components/PDFBlock.svelte";
-    import DonateBlock from "../../../components/DonateBlock.svelte";
+    import HeaderBlock from "../../../../components/HeaderBlock.svelte";
+    import PdfBlock from "../../../../components/PDFBlock.svelte";
+    import DonateBlock from "../../../../components/DonateBlock.svelte";
     import { onMount } from "svelte";
 
     export let data;
@@ -32,7 +32,7 @@
         body="<p>Itt találhatóak a {data.year}-{asOrEs[String(data.year).slice(-1)]} helyszínek és programok.</p>"
     />
     {/if} -->
-    <DonateBlock />
+    <DonateBlock contentBlocks={data.contentBlocks} />
 </section>
 
 <style lang="scss">
