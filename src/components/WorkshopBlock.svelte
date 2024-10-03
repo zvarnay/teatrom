@@ -1,11 +1,25 @@
 <script lang="ts">
-
+    export let contents;
+    console.log(contents[0]);
+    
 </script>
 
 <section>
     <div class="contentWrapper">
         <div class="grid">
-            <article>
+            {#each contents as workshop}
+                <article>
+                    <h2>{workshop.title}</h2>
+                    <div class="imgContainer">
+                        <img src={workshop.image.url} alt="">
+                        {#if workshop.logo}
+                            <img src={workshop.logo.url} alt="" class="logo">
+                        {/if}
+                    </div>
+                    <p>{workshop.body.map((block) => block.content[0].value).join('')}</p>
+                </article>
+            {/each}
+            <!-- <article>
                 <h2>Színházi workshop</h2>
                 <div class="imgContainer">
                     <img src="/images/teatrom-78.jpg" alt="">
@@ -19,7 +33,7 @@
                     <img src="/images/monzart-logo.png" alt="" class="logo">
                 </div>
                 <p>A Manzart Rajziskola fiatal oktatói, legnépszerűbb programjukat, a képregény rajzolást hozzák el a gyerekeknek. Segítenek a legmenőbb, kedvenc karakterek életre keltésében, sokféle művészeti technikát mutatnak meg. Az elkészült műveket a résztvevők emlékül hazavihetnek.</p>
-            </article>
+            </article> -->
         </div>
     </div>
 </section>
@@ -31,7 +45,7 @@
         align-items: center;
         margin: 0 -1rem;
         padding: 3rem 2rem;
-        background: #fff5b2;
+        background: #d2c570;
         
         position: relative;
         z-index: 2;
