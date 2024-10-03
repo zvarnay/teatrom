@@ -5,60 +5,39 @@
 
 <section>
     <HeaderBlock />
-    <ContentBlock
-        title="Archívum"
-        body='
-            <p>Itt találod a korábbi fesztiváljaink programjait, képeit és egyéb dokumentumait.</p>
-            <section class="years">
-                <article>
-                    <a href="/archive/2020">
-                        <button>2020</button>
-                    </a>
-                </article>
-                <article>
-                    <a href="/archive/2021">
-                        <button>2021</button>
-                    </a>
-                </article>
-                <article>
-                    <a href="/archive/2022">
-                        <button>2022</button>
-                    </a>
-                </article>
-                <article>
-                    <a href="/archive/2023">
-                        <button>2023</button>
-                    </a>
-                </article>
-            </section>
-        '
-        background="url(/images/figures-4.webp)"
-    />
+    <section class="years">
+        <a href='/archive/2020'>
+            2020
+        </a>
+        <a href='/archive/2021'>
+            2021
+        </a>
+        <a href='/archive/2022'>
+            2022
+        </a>
+        <a href='/archive/2023'>
+            2023
+        </a>
+    </section>
 </section>
 
 <style lang="scss">
-    :global(.years) {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-
-    :global(.years article) {
-        display: flex;
+    .years {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0;
         justify-content: center;
-        overflow: hidden;
-    }
+        margin: 0 -1rem;
 
-    :global(.years button) {
-        padding: 6px 12px;
-        background: var(--color-theme-1);
-        color: var(--color-theme-2);
-        font-size: var(--font-size-small-header);
-        border: 3px solid var(--color-theme-2);
-        border-radius: 0.5rem;
-        cursor: pointer;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color: var(--color-theme-2);
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
     }
 
 </style>
