@@ -5,7 +5,7 @@
 <section class="contentBlock">
     <div class="grid">
         {#each images as image}
-            <img src={image.url} />
+            <a target="_blank" href={image.url}><img src={image.url} /></a>
         {/each}
     </div>
 </section>
