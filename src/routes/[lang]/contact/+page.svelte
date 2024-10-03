@@ -6,7 +6,7 @@
 </script>
 
 <section>
-    <HeaderBlock title="Kapcsolat" />
+    <HeaderBlock />
     <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "7rZ1hyWdwSYwyrQ3zYEvrX")}
         background="#000"

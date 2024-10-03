@@ -1,5 +1,16 @@
 <script lang="ts">
-    export let title;
+    import { language } from "$lib/contentfulStore";
+    import { headerOptions } from "$lib/headerOptions";
+    import { onMount } from "svelte";
+    import { get } from "svelte/store";
+
+    export let title = "";
+
+    onMount(() => {
+        if (title) return;
+        const pageName = window.location.pathname.split("/").pop();
+        title = headerOptions[pageName][get(language)];
+    });
 </script>
 
 <section>

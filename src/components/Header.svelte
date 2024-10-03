@@ -4,41 +4,14 @@
 	import { language } from '$lib/contentfulStore';
 	import { get } from 'svelte/store';
 	import { goto } from '$app/navigation';
+    import { headerOptions } from '$lib/headerOptions';
 	
 	export let disableTransprancy = false;
 
 	let transparentMenu = true;
 	let menuOpen = false;
 
-	let currentLanguage = get(language);
-
-	const headerTexts = {
-		donate: {
-			hu: 'Támogatás',
-			en: 'Donate',
-		},
-		schedule: {
-			hu: 'Programok',
-			en: 'Schedule',
-		},
-		archive: {
-			hu: 'Archívum',
-			en: 'Archive',
-			classes: 'hideOnDesktop',
-		},
-		about: {
-			hu: 'Rólunk',
-			en: 'About',
-		},
-		press: {
-			hu: 'Sajtó',
-			en: 'Press',
-		},
-		contact: {
-			hu: 'Kapcsolat',
-			en: 'Contact',
-		}
-	}
+	let currentLanguage;
 
 	const toggleMenu = () => {
 		menuOpen = !menuOpen;
@@ -64,8 +37,8 @@
 	});
 
 	onMount(() => {
-		console.log(window);
-		
+		currentLanguage = get(language);
+
 		if (window.location.pathname === '/hu' || window.location.pathname === '/en') {
 			disableTransprancy = true;
 			transparentMenu = false;
@@ -92,10 +65,10 @@
 	// Switch the locale and update the URL path
 	async function switchLocale() {
 		language.update((lang) => lang === 'en' ? 'hu' : 'en');
-		currentLanguage = get(language);
+		const newLanguage = get(language);
 		
 		// Update the URL to include the new language
-		const newPath = `/${currentLanguage}${window.location.pathname.substring(3)}`;
+		const newPath = `/${newLanguage}${window.location.pathname.substring(3)}`;
 		await goto(newPath);  // navigate to the new path with the updated language
 		// Reload the page to fetch the new language's content
 		window.location.reload();
@@ -128,7 +101,7 @@
 				<img src="/images/logo.png" alt="Logo">
 			</a></li>
 
-			{#each Object.entries(headerTexts) as [key, option]}
+			{#each Object.entries(headerOptions) as [key, option]}
 				<a href='/{currentLanguage}/{key}/' class={option['classes'] || ''}><li>{option[currentLanguage]}</li></a>
 			{/each}
 		</ul>
@@ -185,7 +158,7 @@
 	.burger {
 		width: 25px;
 		height: 3px;
-		background-color: #000;
+		background-color: #fff;
 	}
 
 	ul {
@@ -197,6 +170,8 @@
 		left: 0;
 		width: 100%;
 		height: calc(100vh - 4rem);
+		background-color: #000;
+
 		
 		padding: 1rem;
 		padding-top: 2rem;
@@ -233,6 +208,16 @@
 		}
 	}
 
+	button {
+		margin-bottom: 1rem;
+		padding: 6px 12px;
+		height: fit-content;
+		border-radius: 1rem;
+		background-color: transparent;
+		border: 1px solid #fff;
+		color: #fff;
+	}
+
 	.menu-open {
 		display: block;
 	}
@@ -257,6 +242,7 @@
 				left: unset;
 				height: 100%;
 				width: 100%;
+				background: none;
 
 				padding: 0;
 				flex-direction: row;
@@ -285,6 +271,15 @@
 					}
 				}
 			}
+
+			button {
+				margin: auto 0;
+				margin-right: 1rem;
+			}
+		}
+
+		.burger {
+			background-color: #fff;
 		}
 
 		ul li.thisYear {

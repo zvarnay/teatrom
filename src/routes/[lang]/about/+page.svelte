@@ -7,7 +7,7 @@
 </script>
 
 <section>
-    <HeaderBlock title="Rólunk" />
+    <HeaderBlock />
     <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "HxtE7ByriYqeXn8y04qrZ")}
         hideTitle

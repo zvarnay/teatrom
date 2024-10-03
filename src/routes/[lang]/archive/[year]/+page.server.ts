@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit';
 export function load({ params }) {
 	if ( ['2020', '2021', '2022', '2023', '2024'].find(v => v === params.year) ) {
         return {
-            year: params.year,
+            year: Number(params.year),
         };
     }
 	error(404, 'Not found');

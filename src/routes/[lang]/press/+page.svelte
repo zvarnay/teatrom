@@ -7,7 +7,7 @@
 </script>
 
 <section>
-    <HeaderBlock title="Sajtó" />
+    <HeaderBlock />
     <PressBlock
         title="Rádióinterjúk"
         links="{[

@@ -2,10 +2,8 @@
     import { onMount } from "svelte";
     import ContentBlock from "../../../components/ContentBlock.svelte";
     import HeaderBlock from "../../../components/HeaderBlock.svelte";
-    import InteractiveMap from "../../../components/InteractiveMap.svelte";
     import ScheduleBlock from "../../../components/ScheduleBlock.svelte";
     import WorkshopBlock from "../../../components/WorkshopBlock.svelte";
-    import VillageMenu from "../../../components/VillageMenu.svelte";
     import DonateBlock from "../../../components/DonateBlock.svelte";
 
     export let data: { villages: any[], contentBlocks: any[] };
@@ -22,7 +20,7 @@
 </script>
 
 <section>
-    <HeaderBlock title="Programok" />
+    <HeaderBlock />
     <!-- <VillageMenu villages={data.villages} selectedVillage={selectedVillage} on:villageSelected={onVillageSelected} /> -->
     <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "5dHojS2vnjZnZ21fuBNFZX")}

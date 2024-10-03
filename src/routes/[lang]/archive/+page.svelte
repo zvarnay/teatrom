@@ -4,7 +4,7 @@
 </script>
 
 <section>
-    <HeaderBlock title="Archívum" />
+    <HeaderBlock />
     <ContentBlock
         title="Archívum"
         body='

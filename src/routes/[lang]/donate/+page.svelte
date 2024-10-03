@@ -7,7 +7,7 @@
 </script>
 
 <section>
-    <HeaderBlock title="Támogatás" />
+    <HeaderBlock />
     <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "8dCLi3yzeZGWxF0VRS10z")} mini />
         <!-- title="Filléres gondok!"
         body="
