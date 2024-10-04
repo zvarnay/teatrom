@@ -38,7 +38,7 @@
                 </a>
                 <a target="_blank" href="https://donate.stripe.com/28o4k1b6E1r36Yg5kk">
                     <article class="customAmount">
-                        <h3>Egyéni összeg</h3>
+                        <h3>{currentLanguage === 'hu' ? 'Egyéni összeg' : 'Custom amount'}</h3>
                         <button>{supportText}</button>
                     </article>
                 </a>

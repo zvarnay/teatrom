@@ -50,13 +50,16 @@
         content={data.contentBlocks.find((block) => block.sys.id === "1cGmq7dntTleN2zYBNsvzP")}
     />
     <ContentBlock
-        content={data.contentBlocks.find((block) => block.sys.id === "3XhGTrky45FiIJpJS5mWck")}
-        background="#000"
-        whiteText
+    content={data.contentBlocks.find((block) => block.sys.id === "3XhGTrky45FiIJpJS5mWck")}
+    background="#000"
+    whiteText
     />
     <ContentBlock
-        content={data.contentBlocks.find((block) => block.sys.id === "6md6HIQkYHbzMrwXoGjLPK")}
-        background="#fff5b2"
+    content={data.contentBlocks.find((block) => block.sys.id === "6md6HIQkYHbzMrwXoGjLPK")}
+    background="#fff5b2"
+    />
+    <ContentBlock
+        content={data.contentBlocks.find((block) => block.sys.id === "2xtWZRbuPGuXUfY1hOwHJN")}
     />
     <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "2hMNrL3d4GEAMJpCbr1M6Y")}

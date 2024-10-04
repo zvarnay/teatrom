@@ -1,22 +1,21 @@
 <script lang="ts">
     export let title;
     export let body = "";
-    export let links: { title: string; year: string; url: string; image: string }[] = [];
+    export let pressMentions;
 </script>
 
 <section class="pressBlock">
     <div class="contentWrapper">
-        <h2>{title}</h2>
         {#if !!body}
             <p>{@html body}</p>
         {/if}
         <div class="grid">
-            {#each links as link}
+            {#each pressMentions as mention}
                 <article>
-                    <a href={link.url} target="_blank">
-                        <img src={link.image} alt="">
-                        <h3>{link.title}</h3>
-                        <p>{link.year}</p>
+                    <a href={mention.link} target="_blank">
+                        <img src={mention.image.url} alt="">
+                        <h3>{mention.title}</h3>
+                        <p>{mention.medium}, {mention.publicationYear}</p>
                     </a>
                 </article>
             {/each}

@@ -49,6 +49,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
           }
           backgroundCss
           whiteText
+          floatedImage
         }
       }
       yearGalleryCollection(limit: 10) {
@@ -62,6 +63,17 @@ export const load: LayoutServerLoad = async ({ params }) => {
           }
         }
       }
+      pressMentionCollection(limit: 10, locale: "${langCode}") {
+        items {
+          title
+          link
+          medium
+          publicationYear
+          image {
+            url
+          }
+        }
+      }
     }
   `;
 
@@ -69,6 +81,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
   const villages = response.villageCollection.items;
   const contentBlocks = response.contentBlockCollection.items;
   const yearGalleries = response.yearGalleryCollection.items
+  const pressMentions = response.pressMentionCollection.items;
 
   contentBlocks.forEach((contentBlock) => {
     contentBlock.body = contentBlock.body.json.content;
@@ -78,6 +91,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
     villages,
     contentBlocks,
     yearGalleries,
+    pressMentions,
     langCode
   };
 };

@@ -7,6 +7,7 @@
     let body = "";
     let image = null as string | null;
     let style = "";
+    let floatedImage = false;
 
     export let background = "";
     export let whiteText = false;
@@ -58,6 +59,7 @@
         image = image || contentBlock.image?.url;
         background = background || contentBlock.backgroundCss as string;
         whiteText = whiteText || contentBlock.whiteText as boolean;
+        floatedImage = contentBlock.floatedImage as boolean || false;
     }
 
 </script>
@@ -70,14 +72,19 @@
 >
     <div class="contentWrapper {style}">
         <div class="grid">
-            {#if image}
+            {#if image && !floatedImage}
                 <img src={image} alt="" />
             {/if}
             <div style="background: {textBoxBackground}" class:hasTextBox={!!textBoxBackground}>
                 {#if title && !hideTitle}
                     <h2>{title}</h2>
                 {/if}
-                <div class="textContainer">{@html body}</div>
+                <div class="textContainer">
+                    {#if image && floatedImage}
+                        <img src={image} alt="" />
+                    {/if}
+                    {@html body}
+                </div>
             </div>
         </div>
     </div>
@@ -132,7 +139,7 @@
     .grid :global(img) {
         width: 100%;
         height: fit-content;
-        max-width: 16rem;
+        max-width: 20rem;
         height: intrinsic;
     }
 
@@ -162,6 +169,15 @@
     .textContainer {
         display: block;
         gap: 0 2rem;
+
+        img {
+            order: 1;
+            float: right;
+            width: 40%;
+            max-width: 20rem;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
     }
 
     @media (min-width: 500px) {
@@ -173,7 +189,8 @@
             }
 
             .grid :global(img) {
-                width: 33%;
+                width: 40%;
+                max-width: none;
                 margin-right: 2rem;
             }
 
