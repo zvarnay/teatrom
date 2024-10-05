@@ -84,7 +84,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
   const pressMentions = response.pressMentionCollection.items;
 
   contentBlocks.forEach((contentBlock) => {
-    contentBlock.body = contentBlock.body.json.content;
+    contentBlock.body = contentBlock.body?.json.content || [];
   });
 
   return {
