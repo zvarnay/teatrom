@@ -10,7 +10,7 @@
     let selectedVillage: any;
 
     onMount(() => {
-        selectedVillage = data.villages[0];
+        selectedVillage = data.villages[Math.random() * data.villages.length | 0];
     });
 
     const onVillageSelected = ((event) => {

@@ -22,7 +22,7 @@
     {#if screenWidth > 1000}
         <InteractiveMap villages={data.villages} />
     {:else}
-        <ScheduleBlock villages={data.villages} selectedVillage={data.villages[0]} />
+        <ScheduleBlock villages={data.villages} selectedVillage={data.villages[Math.random() * data.villages.length | 0]} />
     {/if}
 
     <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "7cIZOX6xOa1HH4DntUpDbd")} />
