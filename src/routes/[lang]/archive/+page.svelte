@@ -1,24 +1,24 @@
 <script lang="ts">
+    import { get } from "svelte/store";
     import ContentBlock from "../../../components/ContentBlock.svelte";
     import HeaderBlock from "../../../components/HeaderBlock.svelte";
+    import { language } from "$lib/contentfulStore";
+
+    export let data: { contentBlocks: any[] };
+
+    let lang;
+    $: lang = get(language);
 </script>
 
 <section>
     <HeaderBlock />
-    <section class="years">
-        <a href='/archive/2020'>
-            2020
+    {#each [
+        [2020, '2fY5QoXHIXV9D9IHHZIXyu', null], [2021, '3ZU4B960dvQs6ncq1rI6Ix', '#fff5b2'], [2022, '7nBuXC4ONBgT1TL7RtSa72', null], [2023, 'ckZr18dQ91iLDZZF7GO0N', '#fff5b2']
+    ] as [year, id, bg]}
+        <a href={`/${lang}/archive/${year}`}>
+            <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === id)} mini background={bg} />
         </a>
-        <a href='/archive/2021'>
-            2021
-        </a>
-        <a href='/archive/2022'>
-            2022
-        </a>
-        <a href='/archive/2023'>
-            2023
-        </a>
-    </section>
+    {/each}
 </section>
 
 <style lang="scss">
