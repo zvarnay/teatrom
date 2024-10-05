@@ -16,6 +16,7 @@
             <div class="textContainer">
                 <h2>{content.title}</h2>
                 <p>{@html html}</p>
+                <div class="gfm-embed" data-url="https://www.gofundme.com/f/hca62-teatrom-festival/widget/medium?sharesheet=CAMPAIGN_PAGE&attribution_id=undefined"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
             </div>
             <div class="donationOptions">
                 <a target="_blank" href="https://donate.stripe.com/fZe03L5Mk1r33M44gi">
