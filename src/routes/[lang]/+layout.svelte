@@ -2,6 +2,8 @@
 	import Header from '../../components/Header.svelte';
     import '../../app.css';
     import Footer from '../../components/Footer.svelte';
+    import SocialMediaBlock from '../../components/SocialMediaBlock.svelte';
+    import SponsorsBlock from '../../components/SponsorsBlock.svelte';
 </script>
 
 <div class="app">
@@ -10,7 +12,8 @@
 	<main>
 		<slot />
 	</main>
-
+	<SocialMediaBlock />
+	<SponsorsBlock />
 	<Footer />
 </div>
 

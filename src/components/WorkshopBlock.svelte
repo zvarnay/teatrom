@@ -19,21 +19,6 @@
                     <p>{workshop.body.map((block) => block.content[0].value).join('')}</p>
                 </article>
             {/each}
-            <!-- <article>
-                <h2>Színházi workshop</h2>
-                <div class="imgContainer">
-                    <img src="/images/teatrom-78.jpg" alt="">
-                </div>
-                <p>Nagyon hálásak vagyunk azért, hogy miközben a frankfurti színház bejárja velünk a hat állomásból álló turnéját, időt szakít arra, hogy minden helyszínen művészeti műhelyeket is ajánljon a település gyerekeinek és az érdeklődőknek. Ezek akrobatika, gólyaláb, zsonglőr játék, hangszeres és színházi gyakorlatok. Előre izgalommal várjuk a workshopokat, amelyeket a társulat tagjai a helyi iskolákban adnak majd(, és a CEUs hallgatókat is, akik önkéntesen, szakmai gyakorlatként csatlakoznak a feladatokhoz.)</p>
-            </article>
-            <article>
-                <h2>Művészeti workshop</h2>
-                <div class="imgContainer">
-                    <img src="/images/kislany-fest.jpg" alt="">
-                    <img src="/images/monzart-logo.png" alt="" class="logo">
-                </div>
-                <p>A Manzart Rajziskola fiatal oktatói, legnépszerűbb programjukat, a képregény rajzolást hozzák el a gyerekeknek. Segítenek a legmenőbb, kedvenc karakterek életre keltésében, sokféle művészeti technikát mutatnak meg. Az elkészült műveket a résztvevők emlékül hazavihetnek.</p>
-            </article> -->
         </div>
     </div>
 </section>
