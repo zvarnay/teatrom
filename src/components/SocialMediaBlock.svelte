@@ -44,6 +44,7 @@
 
             h2 {
                 flex-grow: 1;
+                width: min-content;
             }
 
             article img {
@@ -70,15 +71,5 @@
         margin-top: 1.5rem;
         font-size: var(--font-size-body);
         line-height: 1.5;
-    }
-
-    @media (min-width: 680px) {
-        section {
-            .grid {
-                h2 {
-                    flex-grow: 1;
-                }
-            }
-        }
     }
 </style>
