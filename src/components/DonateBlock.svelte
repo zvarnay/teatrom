@@ -16,6 +16,11 @@
             <div class="textContainer">
                 <h2>{content.title}</h2>
                 <p>{@html html}</p>
+                <div class="buttonContainer">
+                    <a href="https://www.gofundme.com/f/hca62-teatrom-festival">
+                        <button id="gofundme">GoFundMe</button>
+                    </a>
+                </div>
             </div>
             <div class="donationOptions">
                 <a target="_blank" href="https://donate.stripe.com/fZe03L5Mk1r33M44gi">
@@ -87,6 +92,23 @@
         p {
             font-size: var(--font-size-body);
             line-height: 1.5;
+        }
+
+        .buttonContainer {
+            width: 100%;
+        }
+        
+        button {
+            width: 100%;
+            max-width: 330px;
+            padding: 1rem 0.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            // gofundme color
+            background: #01bc66;
+            font-size: var(--font-size-body);
+            color: #fff;
+            cursor: pointer;
         }
     }
 
