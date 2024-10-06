@@ -1,9 +1,22 @@
+<script lang="ts">
+    import { language } from "$lib/contentfulStore";
+    import { get } from "svelte/store";
+
+	let lang: string, websiteBy: string;
+	language.subscribe(value => lang = value);
+	$: websiteBy = lang == 'hu' ?
+		'weboldal: Hideg Mihály' :
+		'website by Mihály Hideg';
+</script>
+
 <footer>
 	<nav>
 		<ul>
-			<li><a href="https://utcaszak.hu" target="_blank">© 2024 Utcaszínházi Alkotóközösség</a></li>
+			<li>
+				<a href="https://utcaszak.hu" target="_blank">© 2024 Utcaszínházi Alkotóközösség</a>
+			</li>
 			<div class="fill"></div>
-			<!-- <li class="lowercase">weboldal:&nbsp;<a href='/donate/'>hidegmisi</a></li> -->
+			<li class="lowercase">{websiteBy}</li>
 		</ul>
 	</nav>
 </footer>
@@ -52,6 +65,11 @@
 
 		&.lowercase {
 			text-transform: none;
+			color: #666;
+
+			a {
+				color: inherit;
+			}
 		}
 
 		a {
