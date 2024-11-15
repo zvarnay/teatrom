@@ -21,11 +21,11 @@
 		menuOpen = false;
 	});
 
-	// if navigating to the homepage, disable transparency, else enable it
+	// if navigating to the homepage or 2024 page, disable transparency, else enable it
 	navigating.subscribe((value) => {
 		if (value) {
 			console.log(value.to?.route.id);
-			if (value.to?.route.id === '/[lang]') {
+			if (value.to?.route.id === '/[lang]' || value.to?.route.id === '/[lang]/archive/2024') {
 				
 				disableTransprancy = true;
 				transparentMenu = false;
@@ -42,7 +42,10 @@
 		currentLanguage = window.location.pathname.split('/')[1];
 		language.set(currentLanguage);
 
-		if (window.location.pathname === '/hu' || window.location.pathname === '/en') {
+		if (
+			window.location.pathname === '/hu' || window.location.pathname === '/en' ||
+			window.location.pathname === '/hu/archive/2024' || window.location.pathname === '/en/archive/2024'
+		) {
 			disableTransprancy = true;
 			transparentMenu = false;
 		}
@@ -94,7 +97,7 @@
 			<a class="year" href="/{currentLanguage}/archive/2021/"><li class="pastYear">'21</li></a>
 			<a class="year" href="/{currentLanguage}/archive/2022/"><li class="pastYear">'22</li></a>
 			<a class="year" href="/{currentLanguage}/archive/2023/"><li class="pastYear">'23</li></a>
-			<a class="year" href="/{currentLanguage}/"><li class="thisYear">'24</li></a>
+			<a class="year" href="/{currentLanguage}/archive/2024/"><li class="thisYear">'24</li></a>
 
 			<li class="logo"><a href="/{currentLanguage}/">
 				<img src="/images/logo.png" alt="Logo">

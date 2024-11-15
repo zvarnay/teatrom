@@ -33,7 +33,7 @@
             if (block.nodeType == 'paragraph') {
                 body += '<p>';
                 block.content.forEach(text => {
-                    if (text.marks.length) {
+                    if (text.marks && text.marks.length) {
                         text.marks.forEach(mark => {
                             if (mark.type == 'bold') {
                                 body += `<strong>${text.value}</strong>`;

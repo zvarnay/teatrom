@@ -1,4 +1,8 @@
 export const headerOptions = {
+    blog: {
+        hu: 'Blog',
+        en: 'Blog',
+    },
     donate: {
         hu: 'Támogatás',
         en: 'Donate',

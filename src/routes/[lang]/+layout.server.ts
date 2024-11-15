@@ -35,7 +35,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
           }
         }
       }
-      contentBlockCollection(limit: 50, locale: "${langCode}") {
+      contentBlockCollection(limit: 55, locale: "${langCode}") {
         items {
           sys {
             id

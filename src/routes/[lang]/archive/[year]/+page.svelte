@@ -26,8 +26,6 @@
         currentRoute = $page.url.pathname;  // Get the current path
     });
 
-    
-
     $: currentAsOrEs = asOrEs[String(data.year).slice(-1)];
     $: headerText = currentRoute.startsWith('/hu') 
         ? `A ${data.year}-${currentAsOrEs} TeatRom plakátjai`
