@@ -1,5 +1,5 @@
 export const headerOptions = {
-    blog: {
+    'blog-2024': {
         hu: 'Blog',
         en: 'Blog',
     },
