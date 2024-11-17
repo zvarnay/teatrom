@@ -1,8 +1,4 @@
 export const headerOptions = {
-    'blog-2024': {
-        hu: 'Blog',
-        en: 'Blog',
-    },
     donate: {
         hu: 'Támogatás',
         en: 'Donate',
