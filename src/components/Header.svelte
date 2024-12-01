@@ -103,7 +103,11 @@
 				<img src="/images/logo.png" alt="Logo">
 			</a></li>
 
-			<a href='https://utcaszak.hu/teatrom-2024-blog/' target="blank"><li>Blog</li></a>
+			{#if currentLanguage === 'hu'}
+				<a href='https://utcaszak.hu/teatrom-2024-blog/' target="blank"><li>Blog</li></a>
+			{:else}
+				<a href='https://utcaszak.hu/teatrom_2024_blog_eng/' target="blank"><li>Blog</li></a>
+			{/if}
 
 			{#each Object.entries(headerOptions) as [key, option]}
 				<a href='/{currentLanguage}/{key}/' class={option['classes'] || ''}><li>{option[currentLanguage]}</li></a>
