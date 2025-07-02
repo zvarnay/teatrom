@@ -99,7 +99,7 @@
 			<a class="year" href="/{currentLanguage}/archive/2023/"><li class="pastYear">'23</li></a>
 			<a class="year" href="/{currentLanguage}/archive/2024/"><li class="thisYear">'24</li></a>
 
-			<li class="logo teszt"><a href="/{currentLanguage}/">
+			<li class="logo"><a href="/{currentLanguage}/">
 				<img src="/images/logo.png" alt="Logo">
 			</a></li>
 
