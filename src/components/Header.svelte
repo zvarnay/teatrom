@@ -97,7 +97,9 @@
 			<a class="year" href="/{currentLanguage}/archive/2021/"><li class="pastYear">'21</li></a>
 			<a class="year" href="/{currentLanguage}/archive/2022/"><li class="pastYear">'22</li></a>
 			<a class="year" href="/{currentLanguage}/archive/2023/"><li class="pastYear">'23</li></a>
-			<a class="year" href="/{currentLanguage}/archive/2024/"><li class="thisYear">'24</li></a>
+			<a class="year" href="/{currentLanguage}/archive/2024/"><li class="pastYear">'24</li></a>
+			<a class="year" href="/{currentLanguage}/archive/2025/"><li class="thisYear">'25</li></a>
+
 
 			<li class="logo"><a href="/{currentLanguage}/">
 				<img src="/images/logo.png" alt="Logo">
