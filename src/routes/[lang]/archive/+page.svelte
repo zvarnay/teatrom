@@ -13,7 +13,11 @@
 <section>
     <HeaderBlock />
     {#each [
-        [2020, '2fY5QoXHIXV9D9IHHZIXyu', null], [2021, '3ZU4B960dvQs6ncq1rI6Ix', '#fff5b2'], [2022, '7nBuXC4ONBgT1TL7RtSa72', null], [2023, 'ckZr18dQ91iLDZZF7GO0N', '#fff5b2']
+        [2020, '2fY5QoXHIXV9D9IHHZIXyu', null],
+        [2021, '3ZU4B960dvQs6ncq1rI6Ix', '#fff5b2'],
+        [2022, '7nBuXC4ONBgT1TL7RtSa72', null],
+        [2023, 'ckZr18dQ91iLDZZF7GO0N', '#fff5b2'],
+        [2024, '5rzi1MoZURLYau1auj6ByI', null],
     ] as [year, id, bg]}
         <a href={`/${lang}/archive/${year}`}>
             <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === id)} mini background={bg} />

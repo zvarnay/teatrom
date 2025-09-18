@@ -13,7 +13,7 @@
 	<nav>
 		<ul>
 			<li>
-				<a href="https://utcaszak.hu" target="_blank">© 2024 Utcaszínházi Alkotóközösség</a>
+				<a href="https://utcaszak.hu" target="_blank">© 2025 Utcaszínházi Alkotóközösség</a>
 			</li>
 			<div class="fill"></div>
 			<li class="lowercase">{websiteBy}</li>

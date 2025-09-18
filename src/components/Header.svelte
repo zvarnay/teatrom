@@ -25,7 +25,7 @@
 	navigating.subscribe((value) => {
 		if (value) {
 			console.log(value.to?.route.id);
-			if (value.to?.route.id === '/[lang]' || value.to?.route.id === '/[lang]/archive/2024') {
+			if (value.to?.route.id === '/[lang]' || value.to?.route.id === '/[lang]/archive/2025') {
 				
 				disableTransprancy = true;
 				transparentMenu = false;
@@ -44,7 +44,7 @@
 
 		if (
 			window.location.pathname === '/hu' || window.location.pathname === '/en' ||
-			window.location.pathname === '/hu/archive/2024' || window.location.pathname === '/en/archive/2024'
+			window.location.pathname === '/hu/archive/2025' || window.location.pathname === '/en/archive/2025'
 		) {
 			disableTransprancy = true;
 			transparentMenu = false;
