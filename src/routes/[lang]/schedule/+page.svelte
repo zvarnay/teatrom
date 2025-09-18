@@ -37,11 +37,11 @@
             textBoxBackground="#000"
         />
     {/if}
-<!--     <ContentBlock
+    <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "5RGfy3cF2IPmXxfUIdzIru")}
         background="#000"
         whiteText
-    /> -->
+    />
     <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "2hU31IugGKv50am7YSHNJU")}
         background="#fff5b2"
