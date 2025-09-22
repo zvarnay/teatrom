@@ -34,7 +34,7 @@
       textBoxBackground="#000"
     /> -->
 
-    <DonateBlock contentBlocks={data.contentBlocks} />
+    <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "8dCLi3yzeZGWxF0VRS10z")} mini />
 </section>
 
 <style lang="scss">
