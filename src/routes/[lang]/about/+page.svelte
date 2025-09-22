@@ -12,5 +12,10 @@
         content={data.contentBlocks.find((block) => block.sys.id === "HxtE7ByriYqeXn8y04qrZ")}
         hideTitle
     />
-    <DonateBlock contentBlocks={data.contentBlocks} />
+    <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "8dCLi3yzeZGWxF0VRS10z")} 
+        mini
+        background="url(/images/textures/tx-12.webp)"
+        whiteText
+        textBoxBackground="#000"
+     />
 </section>

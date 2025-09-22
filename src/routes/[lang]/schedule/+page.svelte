@@ -70,7 +70,12 @@
         data.contentBlocks.find((block) => block.sys.id === "5zDwyXFFoqo7xiKnuHhPTV"),
         data.contentBlocks.find((block) => block.sys.id === "6z222hRdAbONFwC50yQ9Cp"),
     ]} /> -->
-    <DonateBlock contentBlocks={data.contentBlocks} />
+    <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "8dCLi3yzeZGWxF0VRS10z")} 
+        mini
+        background="url(/images/textures/tx-12.webp)"
+        whiteText
+        textBoxBackground="#000"
+     />
 </section>
 
 <style lang="scss">
