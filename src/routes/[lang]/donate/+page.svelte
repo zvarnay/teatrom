@@ -15,5 +15,5 @@
             <p>Előre is köszönjük minden támogatónknak még a legkisebb adományt is, amellyel hozzájárul ahhoz, hogy az előkészítéshez szükséges művészi, pedagógiai, szociális és szervezői munka, valamint a fesztivál idején a programok lebonyolítása megfelelő színvonalon zajlódhasson.</p>
         "
         background="#d2c570" -->
-    <DonateBlock contentBlocks={data.contentBlocks} />
-</section>
+<!--     <DonateBlock contentBlocks={data.contentBlocks} />
+ --></section>
