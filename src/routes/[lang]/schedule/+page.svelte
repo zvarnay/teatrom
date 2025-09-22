@@ -38,19 +38,19 @@
         />
     {/if}
     <ContentBlock
-        content={data.contentBlocks.find((block) => block.sys.id === "5RGfy3cF2IPmXxfUIdzIru")}
+        content={data.contentBlocks.find((block) => block.sys.id === "7eqphzhTvCsjR0fdvouq0X")}
         background="#000"
         whiteText
     />
     <ContentBlock
-        content={data.contentBlocks.find((block) => block.sys.id === "2hU31IugGKv50am7YSHNJU")}
+        content={data.contentBlocks.find((block) => block.sys.id === "5NDeMPdufkmTQA7lUFu9uo")}
         background="#fff5b2"
     />
     <ContentBlock
-        content={data.contentBlocks.find((block) => block.sys.id === "1cGmq7dntTleN2zYBNsvzP")}
+        content={data.contentBlocks.find((block) => block.sys.id === "1k9AeAxWXyr5lmf5J7vM90")}
     />
     <ContentBlock
-    content={data.contentBlocks.find((block) => block.sys.id === "3XhGTrky45FiIJpJS5mWck")}
+    content={data.contentBlocks.find((block) => block.sys.id === "5kKSEywGXzEcgNeDxRrv1v")}
     background="#000"
     whiteText
     />
