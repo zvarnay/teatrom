@@ -34,7 +34,12 @@
       textBoxBackground="#000"
     /> -->
 
-    <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "8dCLi3yzeZGWxF0VRS10z")} mini />
+    <ContentBlock content={data.contentBlocks.find((block) => block.sys.id === "8dCLi3yzeZGWxF0VRS10z")} 
+        mini
+        background="url(/images/textures/tx-12.webp)"
+        whiteText
+        textBoxBackground="#000"
+ />
 </section>
 
 <style lang="scss">
