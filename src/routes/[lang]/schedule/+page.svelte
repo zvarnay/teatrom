@@ -66,10 +66,10 @@
         whiteText
         background="#000"
     />
-    <WorkshopBlock contents={[
+<!--     <WorkshopBlock contents={[
         data.contentBlocks.find((block) => block.sys.id === "5zDwyXFFoqo7xiKnuHhPTV"),
         data.contentBlocks.find((block) => block.sys.id === "6z222hRdAbONFwC50yQ9Cp"),
-    ]} />
+    ]} /> -->
     <DonateBlock contentBlocks={data.contentBlocks} />
 </section>
 
