@@ -30,12 +30,12 @@
         <div id="detailedSchedule">
             <ScheduleBlock  villages={data.villages} selectedVillage={selectedVillage} />
         </div>
-        <ContentBlock
+<!--         <ContentBlock
             content={data.contentBlocks.find((block) => block.sys.id === "7vgOkZkF55McJFocaLDsdQ")}
             background="url(/images/textures/tx-12.webp)"
             whiteText
             textBoxBackground="#000"
-        />
+        /> -->
     {/if}
     <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "7eqphzhTvCsjR0fdvouq0X")}
