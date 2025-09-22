@@ -54,7 +54,7 @@
     background="#000"
     whiteText
     />
-    <ContentBlock
+   <!-- <ContentBlock
     content={data.contentBlocks.find((block) => block.sys.id === "6md6HIQkYHbzMrwXoGjLPK")}
     background="#fff5b2"
     />
@@ -66,7 +66,7 @@
         whiteText
         background="#000"
     />
-<!--     <WorkshopBlock contents={[
+     <WorkshopBlock contents={[
         data.contentBlocks.find((block) => block.sys.id === "5zDwyXFFoqo7xiKnuHhPTV"),
         data.contentBlocks.find((block) => block.sys.id === "6z222hRdAbONFwC50yQ9Cp"),
     ]} /> -->
