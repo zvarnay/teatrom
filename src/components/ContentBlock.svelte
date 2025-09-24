@@ -1,7 +1,57 @@
 <script lang="ts">
     import { onMount } from "svelte";
     
-    export let content;
+    interface TextMark {
+        type: string;
+    }
+    
+    interface TextContent {
+        nodeType: string;
+        value: string;
+        marks?: TextMark[];
+        data?: any;
+    }
+    
+    interface HyperlinkContent {
+        nodeType: string;
+        data: {
+            uri: string;
+        };
+        content: TextContent[];
+    }
+    
+    interface ContentBlock {
+        nodeType: string;
+        content: (TextContent | HyperlinkContent)[];
+        image?: string;
+    }
+    
+    interface ListItem {
+        content: ContentBlock[];
+    }
+    
+    interface UnorderedListBlock {
+        nodeType: string;
+        content: ListItem[];
+    }
+    
+    interface EmbeddedAssetBlock {
+        nodeType: string;
+        image: string;
+    }
+    
+    interface ContentBlockData {
+        title: string;
+        body: (ContentBlock | UnorderedListBlock | EmbeddedAssetBlock)[];
+        image?: {
+            url: string;
+        };
+        backgroundCss?: string;
+        whiteText?: boolean;
+        floatedImage?: boolean;
+    }
+    
+    export let content: ContentBlockData;
 
     let title = "";
     let body = "";
@@ -22,41 +72,88 @@
         }
     });
 
-    function updateContent(contentBlock) {
+    function updateContent(contentBlock: ContentBlockData) {
         console.dir(contentBlock.body);
         
         title = contentBlock.title;
 
         body = ''
 
-        contentBlock.body.forEach((block) => {
+        contentBlock.body.forEach((block: ContentBlock | UnorderedListBlock | EmbeddedAssetBlock) => {
             if (block.nodeType == 'paragraph') {
                 body += '<p>';
-                block.content.forEach(text => {
-                    if (text.marks && text.marks.length) {
-                        text.marks.forEach(mark => {
-                            if (mark.type == 'bold') {
-                                body += `<strong>${text.value}</strong>`;
-                            } else if (mark.type == 'italic') {
-                                body += `<em>${text.value}</em>`;
+                (block as ContentBlock).content.forEach((contentItem) => {
+                    if (contentItem.nodeType === 'text') {
+                        const textItem = contentItem as TextContent;
+                        let textContent = textItem.value;
+                        
+                        // Apply formatting marks
+                        if (textItem.marks && textItem.marks.length) {
+                            textItem.marks.forEach((mark: TextMark) => {
+                                if (mark.type == 'bold') {
+                                    textContent = `<strong>${textContent}</strong>`;
+                                } else if (mark.type == 'italic') {
+                                    textContent = `<em>${textContent}</em>`;
+                                }
+                            });
+                        }
+                        
+                        body += textContent;
+                    } else if (contentItem.nodeType === 'hyperlink') {
+                        const linkItem = contentItem as HyperlinkContent;
+                        const linkUrl = linkItem.data.uri;
+                        let linkText = '';
+                        
+                        // Process the content inside the hyperlink
+                        linkItem.content.forEach((textContent: TextContent) => {
+                            if (textContent.nodeType === 'text') {
+                                let text = textContent.value;
+                                
+                                // Apply formatting marks to link text
+                                if (textContent.marks && textContent.marks.length) {
+                                    textContent.marks.forEach((mark: TextMark) => {
+                                        if (mark.type == 'bold') {
+                                            text = `<strong>${text}</strong>`;
+                                        } else if (mark.type == 'italic') {
+                                            text = `<em>${text}</em>`;
+                                        }
+                                    });
+                                }
+                                
+                                linkText += text;
                             }
                         });
-                    } else {
-                        body += text.value;
+                        
+                        body += `<a href="${linkUrl}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
                     }
                 });
             } else if (block.nodeType == 'embedded-asset-block') {
-                body += `<img src="${block.image}" />`;
+                body += `<img src="${(block as EmbeddedAssetBlock).image}" />`;
             } else if (block.nodeType == 'unordered-list') {
                 body += '<ul>';
-                block.content.forEach((listItem) => {
-                    body += `<li>${listItem.content[0].content[0].value}</li>`;
+                (block as UnorderedListBlock).content.forEach((listItem: ListItem) => {
+                    let listItemText = '';
+                    listItem.content[0].content.forEach((contentItem) => {
+                        if (contentItem.nodeType === 'text') {
+                            listItemText += (contentItem as TextContent).value;
+                        } else if (contentItem.nodeType === 'hyperlink') {
+                            const linkItem = contentItem as HyperlinkContent;
+                            let linkText = '';
+                            linkItem.content.forEach((textContent: TextContent) => {
+                                if (textContent.nodeType === 'text') {
+                                    linkText += textContent.value;
+                                }
+                            });
+                            listItemText += `<a href="${linkItem.data.uri}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
+                        }
+                    });
+                    body += `<li>${listItemText}</li>`;
                 });
                 body += '</ul>';
             }
         });
         
-        image = image || contentBlock.image?.url;
+        image = image || contentBlock.image?.url || null;
         background = background || contentBlock.backgroundCss as string;
         whiteText = whiteText || contentBlock.whiteText as boolean;
         floatedImage = contentBlock.floatedImage as boolean || false;
@@ -164,6 +261,19 @@
         font-size: var(--font-size-body);
         line-height: 1.5;
         white-space: pre-wrap;
+    }
+
+    :global(.contentBlock a) {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+
+    :global(section.whiteText a) {
+        color: #87ceeb;
+        
+        &:hover {
+            color: #b0e0e6;
+        }
     }
 
     .textContainer {
