@@ -1,23 +1,23 @@
 <script lang="ts">
     export let contents;
-    console.log(contents[0]);
-    
 </script>
 
 <section>
     <div class="contentWrapper">
         <div class="grid">
             {#each contents as workshop}
-                <article>
-                    <h2>{workshop.title}</h2>
-                    <div class="imgContainer">
-                        <img src={workshop.image.url} alt="">
-                        {#if workshop.logo}
-                            <img src={workshop.logo.url} alt="" class="logo">
-                        {/if}
-                    </div>
-                    <p>{workshop.body.map((block) => block.content[0].value).join('')}</p>
-                </article>
+                {#if !!workshop?.title}
+                    <article>
+                        <h2>{workshop.title}</h2>
+                        <div class="imgContainer">
+                            <img src={workshop.image.url} alt="">
+                            {#if workshop.logo}
+                                <img src={workshop.logo.url} alt="" class="logo">
+                            {/if}
+                        </div>
+                        <p>{workshop.body.map((block) => block.content[0].value).join('')}</p>
+                    </article>
+                {/if}
             {/each}
         </div>
     </div>
