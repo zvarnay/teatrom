@@ -30,6 +30,9 @@
             <article>
                 <img src="/images/manzart-logo.png" alt="">
             </article>
+            <article>
+                <img src="/images/equilor.png" alt="">
+            </article>
         </div>
     </div>
 </section>
