@@ -38,11 +38,11 @@
         /> -->
     {/if}
     <ContentBlock
-        content={data.contentBlocks.find((block) => block.sys.id === "7eqphzhTvCsjR0fdvouq0X")}
+        content={data.contentBlocks.find((block) => block.sys.id === "6NDSCVCAJlAmVfDXSNxE07")}
         background="#000"
         whiteText
     />
-    <ContentBlock
+   <!-- <ContentBlock
         content={data.contentBlocks.find((block) => block.sys.id === "5NDeMPdufkmTQA7lUFu9uo")}
         background="#fff5b2"
     />
@@ -54,7 +54,7 @@
     background="#000"
     whiteText
     />
-   <!-- <ContentBlock
+    <ContentBlock
     content={data.contentBlocks.find((block) => block.sys.id === "6md6HIQkYHbzMrwXoGjLPK")}
     background="#fff5b2"
     />
