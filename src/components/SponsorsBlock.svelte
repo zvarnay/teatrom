@@ -31,7 +31,7 @@
                 <img src="/images/manzart-logo.png" alt="">
             </article>
             <article>
-                <img src="/images/equilor.png" alt="">
+                <img src="/images/Equilor.png" alt="">
             </article>
         </div>
     </div>
